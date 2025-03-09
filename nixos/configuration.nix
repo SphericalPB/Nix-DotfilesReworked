@@ -7,7 +7,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -16,8 +18,12 @@
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
     # inputs.hardware.nixosModules.common-ssd
+
     # Nix-Index-Database
     inputs.nix-index-database.nixosModules.nix-index
+
+    # An-Anime-Game-Launcher (Mihoyo & WuWa)
+    inputs.aagl.nixosModules.default
 
     # You can also split up your configuration and import pieces of it here:
     ./services
@@ -25,6 +31,12 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
   ];
+
+  # Automatically updates system packages weekly
+  system.autoUpgrade = {
+    enable = true;
+    dates = "weekly";
+  };
 
   nixpkgs = {
     # You can add overlays here
@@ -43,19 +55,6 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-
-      # Fix Build Issue with Cliphist
-      (final: prev: {
-        cliphist = prev.cliphist.overrideAttrs (_old: {
-          src = final.fetchFromGitHub {
-            owner = "sentriz";
-            repo = "cliphist";
-            rev = "c49dcd26168f704324d90d23b9381f39c30572bd";
-            sha256 = "sha256-2mn55DeF8Yxq5jwQAjAcvZAwAg+pZ4BkEitP6S2N0HY=";
-          };
-          vendorHash = "sha256-M5n7/QWQ5POWE4hSCMa0+GOVhEDCOILYqkSYIGoy/l0=";
-        });
-      })
     ];
     # Configure your nixpkgs instance
     config = {
@@ -72,16 +71,28 @@
       experimental-features = "nix-command flakes";
       # Opinionated: disable global registry
       flake-registry = "";
+      # Automatically hard-links similar packages in /nix/store
+      auto-optimise-store = true;
       # Workaround for https://github.com/NixOS/nix/issues/9574
       nix-path = config.nix.nixPath;
       # Cachix (A Simple way to avoid building large programs)
       substituters = [
         "https://hyprland.cachix.org"
+        "https://ezkea.cachix.org"
       ];
       trusted-public-keys = [
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
       ];
     };
+
+    # Nix Store Garbage Collection
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 10d";
+    };
+
     # Opinionated: disable channels
     channel.enable = false;
 
@@ -100,8 +111,13 @@
     };
     firewall = {
       enable = true;
-      # Trusted Sources: Local Send, Syncthing
-      allowedTCPPorts = [53317 8384 22000];
+      # Trusted Sources
+      allowedTCPPorts = [
+        53317
+        8384 #Local Send
+        22000 # Syncthing
+        12315 # Grayjay
+      ];
       allowedUDPPorts = [22000 21027];
     };
   };
@@ -131,6 +147,9 @@
       enable32Bit = true;
       extraPackages = [pkgs.mesa.drivers pkgs.amdvlk];
       extraPackages32 = [pkgs.driversi686Linux.mesa.drivers pkgs.driversi686Linux.amdvlk];
+      # For graphics version compatibility with Hyprland
+      #extraPackages = [pkgs-unstable.mesa.drivers pkgs.amdvlk];
+      #extraPackages32 = [pkgs-unstable.driversi686Linux.mesa.drivers pkgs.driversi686Linux.amdvlk];
     };
     # Setup Drawing Tablet with OpenTabletDriver
     opentabletdriver.enable = true;
@@ -138,7 +157,10 @@
 
   services = {
     # Display-Manager/Login Screen
-    displayManager.sddm.enable = true;
+    #displayManager.sddm = {
+    #  enable = true;
+    #  wayland.enable = true;
+    #};
 
     # Xorg/X11
     xserver = {
@@ -212,18 +234,33 @@
     # Wrap and Install Comma
     # Run packages Without Installing or Running 'nix-shell'
     nix-index-database.comma.enable = true;
+    # Universal Wayland Session Manager (UWSM)
+    # Wraps standalone Wayland compositors into a set of Systemd units on the fly.
+    uwsm.enable = true;
+    # Globally Installs Hyprland
     hyprland = {
       enable = true;
-      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+      # Generates a new desktop entry(hyprland-uwsm.desktop), which will be available in display managers
+      # and Universal Wayland Session Manager (UWSM)
+      withUWSM = true;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
       xwayland.enable = true;
     };
     # Run unpatched dynamic binaries on NixOS.
     nix-ld.enable = true;
+    # Steam
     steam = {
       enable = true;
+      extraPackages = with pkgs; [glxinfo gperftools];
       gamescopeSession.enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
+    };
+    # Zenless Zone Zero for NixOS/Linux
+    sleepy-launcher = {
+      enable = true;
+      package = inputs.aagl.packages.x86_64-linux.sleepy-launcher;
     };
     gamemode.enable = true;
   };
@@ -247,7 +284,7 @@
       wl-clipboard # Clipboard Manager for Wayland
       wl-clip-persist # Persist Clipboard History when Closing Programs
       cliphist # Clipboard History
-      lf # File-Manager
+      superfile # File-Manager
       neovim # Preferred text editor
       git # Manage Projects/Dotfiles With Git!
       xdg-user-dirs # Automatically Create or Modify User Folders
@@ -272,14 +309,18 @@
 
   # Install System-Wide Fonts
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["Hack" "CascadiaMono" "SourceCodePro"];})
+    nerd-fonts.hack
+    nerd-fonts.caskaydia-mono
+    nerd-fonts.sauce-code-pro
+    # Some Microsoft Fonts
+    corefonts
+    vistafonts
   ];
 
   environment.sessionVariables = {
-    # Hint electron apps to use wayland
-    NIXOS_OZONE_WL = "1";
+    GDK_BACKEND = "wayland, x11";
     # Required by nh(nix-helper)
-    FLAKE = "/home/sphericalpb/Documents/Miscellaneous/nix/nixRework";
+    FLAKE = "/home/sphericalpb/.config/nixConf";
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
   };
 

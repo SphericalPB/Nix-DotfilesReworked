@@ -10,8 +10,8 @@
     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
   in {
     enable = true;
-    theme = spicePkgs.themes.text;
-    colorScheme = "catppuccinMacchiato";
+    #theme = spicePkgs.themes.text;
+    #colorScheme = "catppuccinMacchiato";
 
     enabledCustomApps = with spicePkgs.apps; [
       newReleases

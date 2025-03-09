@@ -28,7 +28,7 @@
 
         "Camera (DCIM)" = {
           id = "stsnm-pjz1q";
-          path = "/home/sphericalpb/Pictures/Artus/IRL";
+          path = "/home/sphericalpb/Pictures/Art-Stuff/IRL";
           devices = ["Spherical-Tab" "Spherical-Oppo"];
         };
 
@@ -62,6 +62,12 @@
             type = "trashcan";
             params.cleanoutDays = "30";
           };
+        };
+
+        "Switch-Data" = {
+          #id = "";
+          path = "/home/sphericalpb/.local/share/suyu";
+          devices = ["Spherical-Tab"];
         };
       };
     };

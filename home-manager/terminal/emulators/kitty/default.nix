@@ -8,10 +8,6 @@
 
   programs.kitty = {
     enable = true;
-    font = {
-      size = 10;
-      name = "Hack";
-    };
 
     settings = {
       scrollback_lines = 10000;

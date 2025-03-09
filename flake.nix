@@ -21,24 +21,38 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
     # Install Packages in a Containerized Environment (kinda useless...)
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
+    # Install Flatpak packages Declaratively!
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
+    # Ricing Made Easy!
+    stylix.url = "github:danth/stylix";
 
     # want to theme programs to the same colorscheme dynamically?
     # use nix-colors!
     nix-colors.url = "github:misterio77/nix-colors";
 
-    # hyprland and hypr-plugins
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland";
+    # Apple Fonts (SF Mono, my beloved <3)
+    apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
+
+    # Hyprland, A Beautiful/Eye Candy Wayland Window Manager
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # Official Plugin-Pack for Hyprland
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    # Dynamic Cursor Animations for Hyprland
     hypr-dynamic-cursors = {
       url = "github:VirtCode/hypr-dynamic-cursors";
+      inputs.hyprland.follows = "hyprland";
+    };
+    # Workspace Overview for Hyprland
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";
     };
 
@@ -48,8 +62,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Grayjay, "Follow Creators, Not Platforms."
+    grayjay = {
+      type = "git";
+      url = "https://codeberg.org/quasigod/nur.git";
+    };
+
     # Zen Browser, A Beautiful Firefox Fork with ARC-like features
-    zen-browser.url = "github:ch4og/zen-browser-flake";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
+    # An Anime Game Launcher (Mihoyo + WuWa)
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

@@ -12,16 +12,16 @@
       exec-once = ["pypr"];
       bind = [
         # scratchpads
-        "$mod,A,exec,pypr toggle term"
-        "CTRL SHIFT, F, exec, pypr toggle lf"
-        "$modAlt,T,exec,pypr toggle btop"
-        "$modAlt,V,exec,pypr toggle volume"
+        "$mod, A, exec, pypr toggle term"
+        "CTRL SHIFT, F, exec, pypr toggle fm"
+        "$modAlt,T,exec,pypr toggle sys"
+        "$modAlt,V,exec,pypr toggle vol"
         # toggle_special
-        "$mod, N, togglespecialworkspace, backdoor"
-        "$modShift, N, exec, pypr toggle_special backdoor"
+        "$mod, D, togglespecialworkspace, backdoor"
+        "$modShift, D, exec, pypr toggle_special backdoor"
         # magnify
-        "$mod, D, exec, pypr zoom +2"
-        "$modShift, D, exec, pypr zoom"
+        #"$mod, D, exec, pypr zoom +2"
+        #"$modShift, D, exec, pypr zoom"
       ];
     };
   };
@@ -32,38 +32,34 @@
 
     [scratchpads.term]
     animation = "fromTop"
-    command = "kitty --class kitty-dropterm"
+    command = "uwsm app -- kitty --class kitty-dropterm"
     class = "kitty-dropterm"
-    size = "70% 55%"
-    max_size = "1366px 100%"
+    size = "88% 55%"
     margin = 10
-    excludes = ["lf"]
+    excludes = ["fm"]
 
-    [scratchpads.lf]
+    [scratchpads.fm]
     animation = "fromTop"
-    command = "kitty --class kitty-lf lf"
-    class = "kitty-lf"
-    size = "70% 55%"
-    max_size = "1366px 100%"
+    command = "uwsm app -- kitty --class kitty-fm superfile"
+    class = "kitty-fm"
+    size = "88% 55%"
     margin = 10
     excludes = ["term"]
 
-    [scratchpads.btop]
+    [scratchpads.sys]
     animation = "fromBottom"
-    command = "kitty --class kitty-btop btop"
-    class = "kitty-btop"
-    size = "75% 60%"
+    command = "uwsm app -- kitty --class kitty-sys btop"
+    class = "kitty-sys"
+    size = "88% 45%"
     margin = 20
-    lazy = true
 
-    [scratchpads.volume]
+    [scratchpads.vol]
     animation = "fromright"
-    command = "pavucontrol"
+    command = "uwsm app -- pavucontrol"
     class = "pavucontrol"
     size = "40% 85%"
     margin = 20
     unfocus = "hide"
     hysteresis = 1
-    lazy = true
   '';
 }

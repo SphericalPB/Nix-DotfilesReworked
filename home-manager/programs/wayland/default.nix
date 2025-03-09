@@ -1,9 +1,11 @@
 {pkgs, ...}: {
   imports = [
     ./hypr
+    ./rofi
   ];
 
   home.packages = with pkgs; [
+    kdePackages.xwaylandvideobridge # ScreenSharing for Electron apps like Discord on Wayland
     swww # A Neat Wallpaper Manager for Wayland
     wl-clipboard # Clipboard Manager for Wayland
     wl-clip-persist # Persist Clipboard History when Closing Programs
@@ -11,7 +13,6 @@
     slurp # Screen Region Selector for Wayland (to used with grim)
     swappy # Image/Snapshot Editor for Wayland
     wlsunset # Day/Night Gamma Adjustments for Wayland
-    rofi-wayland # A Customizable App Launcher (with Wayland Support)
     wlogout # Logout Prompt for Wayland
   ];
 

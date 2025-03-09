@@ -22,52 +22,67 @@ in {
       "$mod" = "SUPER";
       "$modShift" = "SHIFT_SUPER";
       "$modAlt" = "ALT SUPER";
+      "$modAltShift" = "ALT SHIFT SUPER";
       "$alt" = "ALT";
       "$ctrl" = "CTRL";
       "$shift" = "SHIFT";
 
       bind =
         [
+          # Window Manipulation
           "$mod, Q, killactive,"
           "$mod, C, togglefloating,"
           "$mod, S, togglesplit,"
           "$mod, F, fullscreen, 0"
-          "$modAlt, F, fullscreen, 2"
+          "$modAlt, F, fullscreen, 1"
 
-          "$modAlt, N, movefocus, l"
-          "$modAlt, E, movefocus, d"
-          "$modAlt, I, movefocus, u"
-          "$modAlt, O, movefocus, r"
+          # Window Management
+          "$modAlt, H, movefocus, l"
+          "$modAlt, J, movefocus, d"
+          "$modAlt, K, movefocus, u"
+          "$modAlt, L, movefocus, r"
+          "$modAltShift, H, swapwindow, l"
+          "$modAltShift, J, swapwindow, d"
+          "$modAltShift, K, swapwindow, u"
+          "$modAltShift, L, swapwindow, r"
 
-          "$mod, E, workspace, +1"
-          "$mod, I, workspace, -1"
-          "$modAlt, E, movetoworkspace, +1"
-          "$modAlt, I, movetoworkspace, -1"
+          # Manage Workspaces
+          "$mod, J, workspace, +1"
+          "$mod, K, workspace, -1"
+          "$modShift, J, movetoworkspace, +1"
+          "$modShift, K, movetoworkspace, -1"
           "$mod, mouse_up, workspace, e+1"
           "$mod, mouse_down, workspace, e-1"
 
-          # Utilities
-          "$modShift, Q, exec, wlogout"
-          "$mod, Return, exec, $TERM"
-          "$modShift, F, exec, $BROWSER"
-          "$modShift, E, exec, nemo"
-          "$alt, Space, exec, rofi -show drun"
-          "$mod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
-          "$mod, P, exec, notify-send $(hyprpicker --autocopy)"
+          ## Utilities
+          "$modShift, Q, exec, uwsm app -- sh $HOME/.config/rofi/bin/powermenu"
+          # Terminal
+          "$mod, Return, exec, uwsm app -- kitty"
+          # Browser
+          "$modShift, F, exec, uwsm app -- zen"
+          # File-Manager
+          "$modShift, E, exec, uwsm app -- nemo"
+          # Application Launcher
+          "$alt, Space, exec, uwsm app -- sh $HOME/.config/rofi/bin/launcher"
+          # Clipboard Menu
+          "$mod, V, exec, cliphist list | uwsm app -- rofi -dmenu | cliphist decode | wl-copy"
+          # Colorpicker
+          "$mod, P, exec, notify-send $(uwsm app -- hyprpicker --autocopy)"
 
           # Screenshot
           # Fullscreen Screenshot
-          ", Print, exec, grimblast --notify --cursor copysave output $shotDir"
+          ", Print, exec, uwsm app -- grimblast --notify --cursor copysave output $shotDir"
 
           # Select Area Screenshot
-          # stop animations while screenshotting; makes black border go away --fufexan
-          "$ctrl, Print, exec, ${screenshotarea}"
+          # stop animations while screenshotting; makes black border go away -fufexan
+          "$ctrl, Print, exec, uwsm app -- ${screenshotarea}"
 
           # Annotate Select Area
-          "$mod, Print, exec, grimblast save area - | swappy -f -"
+          "$mod, Print, exec, uwsm app -- grimblast save area - | uwsm app -- swappy -f -"
         ]
         ++ workspaces;
 
+      # Binds that rely on mouse movement
       bindm = [
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
@@ -82,19 +97,19 @@ in {
         ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ];
 
-      bindle = [
+      bindel = [
         # Volume Controls
         ", XF86AudioRaiseVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%+"
         ", XF86AudioLowerVolume, exec, wpctl set-volume -l '1.0' @DEFAULT_AUDIO_SINK@ 6%-"
       ];
     };
 
-    extraConfig = ''
-      # Gromit-MPX Fix (https://www.reddit.com/r/hyprland/comments/18kutkk)
-      bind = SHIFT CTRL, G, togglespecialworkspace, gromit
-      bind = , F8, exec, gromit-mpx --undo
-      bind = SHIFT, F8, exec, gromit-mpx --redo
-      bind = SHIFT, F9, exec, gromit-mpx --clear
-    '';
+    #extraConfig = ''
+    #  # Gromit-MPX Fix (https://www.reddit.com/r/hyprland/comments/18kutkk)
+    #  bind = SHIFT CTRL, G, togglespecialworkspace, gromit
+    #  bind = , F8, exec, gromit-mpx --undo
+    #  bind = SHIFT, F8, exec, gromit-mpx --redo
+    #  bind = SHIFT, F9, exec, gromit-mpx --clear
+    #'';
   };
 }

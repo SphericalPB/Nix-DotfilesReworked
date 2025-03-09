@@ -6,10 +6,12 @@
     hash = "sha256-Dc/zdxfzAUM5NX8PxzfljRbYvO9f9syuLO8yBr+R3qg=";
   };
 
-  nixDir = "~/Documents/Miscellaneous/nix/nixRework"; #"~/.config/nixconf";
+  nixDir = "~/.config/nixConf";
   nixHost = "Spherical-Nix";
   nixUser = "sphericalpb";
 in {
+  imports = [./tide.nix];
+
   # Appling Fish Plugin Themes
   xdg.configFile."fish/themes/Catppuccin Macchiato.theme".source = "${catppuccin-fish}/themes/Catppuccin Macchiato.theme";
 
@@ -22,9 +24,8 @@ in {
 
     # Will Execute if Fish is Login/Default Shell
     shellInit = ''
-      # Exports
-      set -x TERM kitty
       set -x EDITOR nvim
+      set -x TERM kitty
       set -x BROWSER zen
     '';
 
@@ -39,11 +40,6 @@ in {
     };
 
     plugins = [
-      {
-        # Theming CMD Prompts
-        name = "tide";
-        src = pkgs.fishPlugins.tide.src;
-      }
       {
         # For Tidying Up Fish's Command History
         name = "sponge";

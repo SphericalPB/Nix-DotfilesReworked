@@ -51,10 +51,22 @@
   home = {
     username = "sphericalpb";
     homeDirectory = "/home/sphericalpb";
+    sessionVariables = {
+      TERMINAL = "kitty";
+    };
   };
-
   # Hint Programs to Follow 'xdg-user-dirs' Configured Directories
   xdg.userDirs.enable = true;
+  # Setting Default Applications through XDG Mime(self-explanatory LMAO)
+  #xdg.mimeApps = {
+  #  enable = true; # Dont Forget! c:
+  #  defaultApplications = {
+  #    #"mimetype1" = [ "default1.desktop" "default2.desktop" ];
+  #    "inode/directory" = "nemo.desktop"; # File Manager
+  #    "image/png" = "qimgv.desktop";
+  #    "image/jpeg" = "qimgv.desktop";
+  #  };
+  #};
 
   # Set Base16 Colorscheme
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
@@ -70,25 +82,23 @@
   };
   home.packages = with pkgs; [
     nemo-with-extensions # Preferred File-Manager
-    qimgv    # Image Viewer
-    vlc      # Best Video Player
-    krita    # Open-Source Art Program
+    qimgv # Image Viewer
+    vlc # Best Video Player
+    obs-studio # A widely used Free n' Open-Source Program for Screen Recording/Streaming
+    krita # Open-Source Art Program
     libreoffice-fresh # FOSS Office Suite
+    jetbrains.idea-community-bin # Java IDE required for College
     obsidian # Markdown Text Editor
     #logseq  # A Neat Obsidian Alternative
-    anki     # Spaced Repetition Flashcard Program
-    vesktop  # Discord... but BETTER!!
-    inputs.zen-browser.packages."${system}".generic # A Beautiful ARC-like Firefox Fork
-    bottles  # Bottles! An Easy-to-Use Wine-Prefix Manager
+    anki # Spaced Repetition Flashcard Program
+    #vesktop # Discord... but BETTER!! Note: Screenshare's not working for some reason...
+    legcord # Using the legcord client instead.
+    inputs.zen-browser.packages."${system}".default # A Beautiful ARC-like Firefox Fork
+    #inputs.grayjay.packages."${system}".grayjay-desktop # Grayjay ( Follow Creators, Not Platforms )
+    bottles # Bottles! An Easy-to-Use Wine-Prefix Manager
     protonup # GUI Proton Manager
     mangohud # System-Performance Stats for Games
-    # Installs Vivaldi with proprietary video codecs
-    (vivaldi.override {
-      proprietaryCodecs = true;
-      enableWidevine = false;
-    })
-    vivaldi-ffmpeg-codecs
-    widevine-cdm
+    suyu # A Community Recontiuation of YUZU Emulator
   ];
 
   # Nicely reload system units when changing configs

@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   home.packages = with pkgs; [
     dconf
   ];
@@ -12,25 +16,30 @@
     };
   };
 
-  home.file."/home/sphericalpb/.icons".source = ./.icons;
-
   gtk = {
     enable = true;
     theme = {
-      package = pkgs.magnetic-catppuccin-gtk.override {
+      #package = pkgs.magnetic-catppuccin-gtk.override {
+      #  size = "standard";
+      #  accent = ["green"];
+      #  tweaks = ["macchiato"];
+      #};
+      package = pkgs.catppuccin-gtk.override {
         size = "standard";
-        accent = ["green"];
-        tweaks = ["macchiato"];
+        accents = ["blue"];
+        variant = "macchiato";
+        #tweaks = [ "" ];
       };
-      name = "Catppuccin-GTK-Green-Dark-Macchiato";
+      #name = "Catppuccin-GTK-Green-Dark-Macchiato";
+      name = "catppuccin-macchiato-blue-standard";
     };
 
     iconTheme = {
       package = pkgs.catppuccin-papirus-folders.override {
         flavor = "macchiato";
-        accent = "yellow";
+        accent = "lavender";
       };
-      name = "Papirus";
+      name = "Numix";
     };
 
     cursorTheme = {
@@ -38,7 +47,8 @@
     };
 
     font = {
-      name = "SauceCodePro Nerd Font";
+      package = inputs.apple-fonts.packages.${pkgs.system}.sf-mono-nerd;
+      name = "SFMono Nerd Font";
       size = 11;
     };
   };

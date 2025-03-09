@@ -10,8 +10,8 @@
     libsForQt5.qt5ct
 
     (catppuccin-kvantum.override {
-      accent = "Mauve";
-      variant = "Macchiato";
+      accent = "mauve";
+      variant = "macchiato";
     })
   ];
 
