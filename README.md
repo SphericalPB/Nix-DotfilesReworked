@@ -6,7 +6,7 @@
 git clone git@github.com:SphericalPB/Nix-DotfilesReworked.git [path]
 ````
 
-- *From the Installation Media*
+- *From the Installation Media* \
 In this case, "#Spherical-Nix" is the Host Name stated in the config.
 ````
 nixos-install --flake /path/to/config#Spherical-Nix
@@ -17,8 +17,9 @@ nixos-install --flake /path/to/config#Spherical-Nix
 sudo nixos-rebuild switch --flake /path/to/config#Spherical-Nix
 ````
 
-- *Install home-manager config*
-In this case, "#sphericalpb" is the username stated in the `home.nix`. And "@Spherical-NixOS" is the Host you want to install the config to.
+- *Install home-manager config* \
+In this case, "#sphericalpb" is the username stated in the `home.nix`. \
+And "@Spherical-NixOS" is the Host you want to install the config to.
 ````
 home-manager switch --flake /path/to/config#sphericalpb@Spherical-NixOS
 ````
