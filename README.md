@@ -14,7 +14,7 @@ nixos-install --flake /path/to/config#Spherical-Nix
 
 - *From existing NixOS installation*
 ````
-sudo nixos-rebuild switch --flake /path/to/config#Spherical-Nix
+nixos-rebuild switch --flake /path/to/config#Spherical-Nix
 ````
 
 - *Install home-manager config* \
