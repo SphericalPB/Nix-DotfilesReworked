@@ -1,17 +1,20 @@
 ## My current NixOS Configuration
 
 #### How to install:
+- Just clone this repo to the desired location.
+````git clone git@github.com:SphericalPB/Nix-DotfilesReworked.git [path]````
+
 - *From the Installation Media*
-    in this case, "#Spherical-Nix"  is the Host Name stated in the config.
-``nixos-install --flake /path/to/config#Spherical-Nix``
+    In this case, "#Spherical-Nix"  is the Host Name stated in the config.
+````nixos-install --flake /path/to/config#Spherical-Nix````
 
 - *From existing NixOS installation*
-``sudo nixos-rebuild switch --flake /path/to/config#Spherical-Nix``
+````sudo nixos-rebuild switch --flake /path/to/config#Spherical-Nix````
 
 - *Install home-manager config*
     In this case, "#sphericalpb" is the username stated in the `home.nix`
     and "@Spherical-NixOS" is the Host you want to install the config to.
-``home-manager switch --flake /path/to/config#sphericalpb@Spherical-NixOS``
+````home-manager switch --flake /path/to/config#sphericalpb@Spherical-NixOS````
 
 #### TODO:
 - [ ] Create a script that automatically commit and push the config to github
