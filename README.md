@@ -27,6 +27,7 @@ home-manager switch --flake /path/to/config#sphericalpb@Spherical-NixOS
 ````
 nix flake update --commit-lock-file 
 ````
+Then rebuild switch either the nixos config or home-manager config (or both)
 
 #### TODO:
 - [ ] Create a script that automatically commit and push the config to github
