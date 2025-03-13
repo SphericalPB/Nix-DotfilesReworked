@@ -23,6 +23,10 @@ And "@Spherical-NixOS" is the Host you want to install the config to.
 ````
 home-manager switch --flake /path/to/config#sphericalpb@Spherical-NixOS
 ````
+- *Updating Flakes* \
+````
+nix flake update --commit-lock-file 
+````
 
 #### TODO:
 - [ ] Create a script that automatically commit and push the config to github
