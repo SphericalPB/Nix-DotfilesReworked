@@ -23,11 +23,8 @@ in {
     '';
 
     # Will Execute if Fish is Login/Default Shell
-    shellInit = ''
-      set -x EDITOR nvim
-      set -x TERM kitty
-      set -x BROWSER zen
-    '';
+    #shellInit = ''
+    #'';
 
     shellAliases = {
       rebuild-switch = "pushd ${nixDir}; alejandra .; git add .; nh os switch -H ${nixHost}; popd";

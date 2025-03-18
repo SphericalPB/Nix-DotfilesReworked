@@ -7,9 +7,7 @@
   config,
   pkgs,
   ...
-}: let
-  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in {
+}: {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -286,6 +284,7 @@ in {
       cliphist # Clipboard History
       superfile # File-Manager
       neovim # Preferred text editor
+      lunarvim # IDE-like configuration/layer for Neovim
       git # Manage Projects/Dotfiles With Git!
       xdg-user-dirs # Automatically Create or Modify User Folders
       # Better CLI alternatives

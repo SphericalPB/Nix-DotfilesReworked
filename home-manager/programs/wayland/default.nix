@@ -1,17 +1,22 @@
 {pkgs, ...}: {
   imports = [
     ./hypr
+    ./wlogout.nix
     ./rofi
+    ./wofi
+    #./anyrun.nix
   ];
 
   home.packages = with pkgs; [
     kdePackages.xwaylandvideobridge # ScreenSharing for Electron apps like Discord on Wayland
     swww # A Neat Wallpaper Manager for Wayland
+    waypaper # GUI Wallpaper picker that supports swww, hyprpaper, etc.
     wl-clipboard # Clipboard Manager for Wayland
     wl-clip-persist # Persist Clipboard History when Closing Programs
     grim # Basic Screenshot Tool for Wayland
     slurp # Screen Region Selector for Wayland (to used with grim)
-    swappy # Image/Snapshot Editor for Wayland
+    #swappy # Image/Snapshot Editor for Wayland
+    satty # Better alternative to swappy
     wlsunset # Day/Night Gamma Adjustments for Wayland
     wlogout # Logout Prompt for Wayland
   ];

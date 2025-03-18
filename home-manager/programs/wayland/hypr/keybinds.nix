@@ -22,6 +22,7 @@ in {
       "$mod" = "SUPER";
       "$modShift" = "SHIFT_SUPER";
       "$modAlt" = "ALT SUPER";
+      "$ctrlShift" = "CTRL SHIFT";
       "$modAltShift" = "ALT SHIFT SUPER";
       "$alt" = "ALT";
       "$ctrl" = "CTRL";
@@ -54,8 +55,18 @@ in {
           "$mod, mouse_up, workspace, e+1"
           "$mod, mouse_down, workspace, e-1"
 
+          # Manage Special Workspace
+          "$modShift, D, exec, uwsm app -- scratchpad"
+          "$mod, D, exec, uwsm app -- scratchpad -g"
+
+          # Dropdown Applications
+          "$mod, A, exec, uwsm app -- hdrop -f -g 20 -w 90 kitty --class dropdown-term"
+          "$ctrlShift, F, exec, uwsm app -- hdrop -f -g 20 -w 90 kitty --class dropdown-file superfile"
+          "$modAlt, T, exec, uwsm app -- hdrop -f -g 20 -w 90 -p bottom kitty --class dropdrown-sys btop"
+          "$modAlt, V, exec, uwsm app -- hdrop -f -g 1130 -h 85 -w 40 -p left -c org.pulseaudio.pavucontrol pavucontrol"
+
           ## Utilities
-          "$modShift, Q, exec, uwsm app -- sh $HOME/.config/rofi/bin/powermenu"
+          "$modShift, Q, exec, uwsm app -- wlogout"
           # Terminal
           "$mod, Return, exec, uwsm app -- kitty"
           # Browser
@@ -63,7 +74,7 @@ in {
           # File-Manager
           "$modShift, E, exec, uwsm app -- nemo"
           # Application Launcher
-          "$alt, Space, exec, uwsm app -- sh $HOME/.config/rofi/bin/launcher"
+          "$alt, Space, exec, uwsm app -- wofi"
           # Clipboard Menu
           "$mod, V, exec, cliphist list | uwsm app -- rofi -dmenu | cliphist decode | wl-copy"
           # Colorpicker
@@ -78,7 +89,7 @@ in {
           "$ctrl, Print, exec, uwsm app -- ${screenshotarea}"
 
           # Annotate Select Area
-          "$mod, Print, exec, uwsm app -- grimblast save area - | uwsm app -- swappy -f -"
+          "$mod, Print, exec, uwsm app -- grimblast save area - | uwsm app -- satty --filename - --fullscreen --output-filename $shotDir"
         ]
         ++ workspaces;
 

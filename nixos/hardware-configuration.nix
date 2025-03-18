@@ -61,8 +61,15 @@
     options = ["subvol=swap" "noatime"];
   };
 
+  fileSystems."/run/media/sphericalpb/e6c0084e-1793-48cd-9fec-9ab549d2791e" = {
+    device = "/dev/disk/by-uuid/e6c0084e-1793-48cd-9fec-9ab549d2791e";
+    fsType = "ext4";
+  };
+
   #swapDevices = [];
   swapDevices = [{device = "/swap/swapfile";}];
+  # Change how aggressive the kernel uses the swap space
+  boot.kernel.sysctl = {"vm.swappiness" = 0;};
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

@@ -1,12 +1,10 @@
 {...}: {
   imports = [
-    # Hyprland Python Plugins
-    ./pyprland.nix
+    # Hyprland Python Plugins (Too buggy so im replacing it with standalone programs)
+    #./pyprland.nix
     # Fancy Cursor Animations
     ./hypr-dynamic-cursors.nix
     # Workspace Overview for Hyprland
-    ./hyprspace.nix # Currently doesn't work on Hyprland 0.47.x
-    # Temporary a replacement for Hyprspace
-    #./hyprexpo.nix
+    ./hyprspace.nix
   ];
 }

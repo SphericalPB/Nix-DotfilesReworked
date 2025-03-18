@@ -9,7 +9,7 @@
     # Global Colorscheme
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     # Default wallpaper
-    image = ./wallpaper.png;
+    #image = ./wallpaper.png;
     # Setting Global Fonts
     fonts = {
       serif = {

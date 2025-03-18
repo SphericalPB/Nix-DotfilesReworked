@@ -15,6 +15,10 @@
   home.packages = with pkgs; [
     # Hyprland's own polkit agent
     #hyprpolkitagent
+    # Glorified Dropdown Creator ported for Hyprland
+    inputs.hyprland-contrib.packages.${system}.hdrop
+    # Minimize and bring back windows from a special workspace 'scratchpad'
+    inputs.hyprland-contrib.packages.${system}.scratchpad
     # Screenshot Helper for 'grim'
     inputs.hyprland-contrib.packages.${system}.grimblast
     # xProp for Hyprland/Wayland

@@ -3,8 +3,6 @@
 {
   inputs,
   outputs,
-  lib,
-  config,
   pkgs,
   ...
 }: {
@@ -52,7 +50,9 @@
     username = "sphericalpb";
     homeDirectory = "/home/sphericalpb";
     sessionVariables = {
+      EDITOR = "lvim";
       TERMINAL = "kitty";
+      BROWSER = "zen";
     };
   };
   # Hint Programs to Follow 'xdg-user-dirs' Configured Directories

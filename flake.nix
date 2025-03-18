@@ -56,6 +56,12 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    # Wayland krunner-like Runner
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Spice up your Spotify Client with themes and plugins!
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";

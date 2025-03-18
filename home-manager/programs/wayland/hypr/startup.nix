@@ -9,7 +9,7 @@
         # Super User Password Prompt for GUI Applications
         #"systemctl --user enable --now hyprpolkitagent.service"
         "xwaylandvideobridge"
-        #"swww-daemon"
+        "uwsm app -- swww-daemon"
         "wlsunset -l 13 -L 122"
         # Clipboard
         "wl-paste --type text --watch cliphist store"
