@@ -1,7 +1,5 @@
 #/bin/bash
-
 nixDir=$HOME/.config/nixConf
-nixUser="sphericalpb"
 nixHost="Spherical-Nix"
 # > cd to $nixDir 
 # > format the nix configuration 
@@ -34,7 +32,8 @@ done
 rebuild
 
 # If there the flag omitted isnt '-s', ask for the commit name.
-if [[ "$1" != "-s" ]]; then
+if [[ ! \ $*\  == *\ -s\ * ]]; then
+    echo =============================
     echo 'Please enter a commit name? (keep empty for timestamp)' 
     read -p '> '  commitName
     if [[ ! -n $commitName ]]; then

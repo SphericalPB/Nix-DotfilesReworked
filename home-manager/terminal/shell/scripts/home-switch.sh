@@ -1,32 +1,42 @@
 #/bin/bash
-
-nixDir=$HOME/.config/nixConf/
+nixDir=$HOME/.config/nixConf
 nixUser="sphericalpb"
 nixHost="Spherical-Nix"
-
 # > cd to $nixDir 
 # > format the nix configuration 
 # > notify git if there has been changes in the $nixDir directory
 # > rebuild and switch to latest home-manager config
-pushd $nixDir
-alejandra .
-git add .
-nh home switch -c $nixUser@$nixHost
+function rebuild() { 
+  pushd $nixDir
+  alejandra .
+  git add .
+  nh home switch -c $nixUser@$nixHost
+}
 
 # Custom flags. 
 # Adding the flag '-s' along with the script skips the git commit and push processes 
-while getopts "s" opt;do
+while getopts "hsu" opt;do
   case $opt in
+  h)
+    printf "%s\n" "-h | show list of a available flags" "-s | skip git commit and push" "-u | update flakes packages"
+    exit
+    ;;
   s)
     echo "Skipping commit and push procedures..."
+    ;;
+  u) 
+    pushd $nixDir; nix flake update; popd
     ;;
   esac
 done
 
-# If there is no flag ommitted, ask for the commit name.
-if [[ "$#" -eq 0 ]]; then
+rebuild
+
+# If there the flag omitted isnt '-s', ask for the commit name.
+if [[ \ $*\  == *\ -s\ * ]]; then
+    echo =============================
     echo 'Please enter a commit name? (keep empty for timestamp)' 
-    read -p '> '  commitName 
+    read -p '> '  commitName
     if [[ ! -n $commitName ]]; then
       commitName=$(date -u +%F_%H%M%S)
       echo =============================
