@@ -1,0 +1,54 @@
+#/bin/bash
+
+nixDir=$HOME/.config/nixConf
+nixUser="sphericalpb"
+nixHost="Spherical-Nix"
+# > cd to $nixDir 
+# > format the nix configuration 
+# > notify git if there has been changes in the $nixDir directory
+# > rebuild and switch to latest home-manager config
+function rebuild() { 
+  pushd $nixDir
+  alejandra .
+  git add .
+  nh os switch -H $nixHost
+}
+
+# Custom flags. 
+# Adding the flag '-s' along with the script skips the git commit and push processes 
+while getopts "hsu" opt;do
+  case $opt in
+  h)
+    printf "%s\n" "-h | show list of a available flags" "-s | skip git commit and push" "-u | update flakes packages"
+    exit
+    ;;
+  s)
+    echo "Skipping commit and push procedures..."
+    ;;
+  u) 
+    pushd $nixDir; nix flake update; popd
+    ;;
+  esac
+done
+
+rebuild
+
+# If there the flag omitted isnt '-s', ask for the commit name.
+if [[ "$1" != "-s" ]]; then
+    echo 'Please enter a commit name? (keep empty for timestamp)' 
+    read -p '> '  commitName
+    if [[ ! -n $commitName ]]; then
+      commitName=$(date -u +%F_%H%M%S)
+      echo =============================
+      printf " > %s\n > %s\n" "No input found" "Setting commit name to timestamp: \"$commitName\""
+    fi
+    echo =============================
+    echo " > Setting up git commit..."
+    git commit -am $commitName 
+    git push
+    echo =============================
+    printf " > %s " "Successful commit: \"$commitName\""
+fi
+# Moves the user back to the previous directory, before the script was ran.
+popd
+
