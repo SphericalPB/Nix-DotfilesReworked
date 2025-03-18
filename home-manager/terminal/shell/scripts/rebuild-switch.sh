@@ -17,6 +17,7 @@ function rebuild() {
 while getopts "hsu" opt;do
   case $opt in
   h)
+    echo "rebuild-switch [-h|-s|-u]"
     printf "%s\n" "-h | show list of a available flags" "-s | skip git commit and push" "-u | update flakes packages"
     exit
     ;;
@@ -43,7 +44,7 @@ if [[ ! \ $*\  == *\ -s\ * ]]; then
     fi
     echo =============================
     echo " > Setting up git commit..."
-    git commit -am $commitName 
+    git commit -am \"$commitName\" 
     git push
     echo =============================
     printf " > %s " "Successful commit: \"$commitName\""

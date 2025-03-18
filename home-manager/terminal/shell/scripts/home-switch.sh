@@ -18,6 +18,7 @@ function rebuild() {
 while getopts "hsu" opt;do
   case $opt in
   h)
+    echo "home-switch [-h|-s|-u]"
     printf "%s\n" "-h | show list of a available flags" "-s | skip git commit and push" "-u | update flakes packages"
     exit
     ;;
@@ -33,10 +34,10 @@ done
 rebuild
 
 # If there the flag omitted isnt '-s', ask for the commit name.
-if [[ \ $*\  == *\ -s\ * ]]; then
+if [[ ! \ $*\  == *\ -s\ * ]]; then
     echo =============================
     echo 'Please enter a commit name? (keep empty for timestamp)' 
-    read -p '> '  commitName
+    read -p '> ' commitName
     if [[ ! -n $commitName ]]; then
       commitName=$(date -u +%F_%H%M%S)
       echo =============================
@@ -44,7 +45,7 @@ if [[ \ $*\  == *\ -s\ * ]]; then
     fi
     echo =============================
     echo " > Setting up git commit..."
-    git commit -am $commitName 
+    git commit -am \"$commitName\" 
     git push
     echo =============================
     printf " > %s " "Successful commit: \"$commitName\""

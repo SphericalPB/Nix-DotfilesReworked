@@ -6,9 +6,10 @@
     hash = "sha256-Dc/zdxfzAUM5NX8PxzfljRbYvO9f9syuLO8yBr+R3qg=";
   };
 
-  nixDir = "~/.config/nixConf";
-  nixHost = "Spherical-Nix";
-  nixUser = "sphericalpb";
+  scripts = "~/.config/nixConf/home-manager/terminal/shell/scripts";
+  #nixDir = "~/.config/nixConf";
+  #nixHost = "Spherical-Nix";
+  #nixUser = "sphericalpb";
 in {
   imports = [./tide.nix];
 
@@ -27,9 +28,11 @@ in {
     #'';
 
     shellAliases = {
-      rebuild-switch = "pushd ${nixDir}; alejandra .; git add .; nh os switch -H ${nixHost}; popd";
-      home-switch = "pushd ${nixDir}; alejandra .; git add .; nh home switch -c ${nixUser}@${nixHost}; popd";
-      nix-commit = ''pushd ${nixDir}; read Name -p 'echo "Commit Name?"; echo "> "'; git commit -am $NAME; git push; popd'';
+      #rebuild-switch = "pushd ${nixDir}; alejandra .; git add .; nh os switch -H ${nixHost}; popd";
+      #home-switch = "pushd ${nixDir}; alejandra .; git add .; nh home switch -c ${nixUser}@${nixHost}; popd";
+      #nix-commit = ''pushd ${nixDir}; read Name -p 'echo "Commit Name?"; echo "> "'; git commit -am $NAME; git push; popd'';
+      rebuild-switch = "${scripts}/rebuild-switch.sh";
+      home-switch = "${scripts}/home-switch.sh";
       ls = "lsd";
       cat = "bat";
       rm = "trash";
