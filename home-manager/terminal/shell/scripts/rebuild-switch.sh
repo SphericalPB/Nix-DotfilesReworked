@@ -44,7 +44,7 @@ if [[ ! \ $*\  == *\ -s\ * ]]; then
     fi
     echo =============================
     echo " > Setting up git commit..."
-    git commit -am \"$commitName\" 
+    git commit -am "$commitName" 
     git push
     echo =============================
     printf " > %s " "Successful commit: \"$commitName\""
