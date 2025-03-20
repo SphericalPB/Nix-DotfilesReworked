@@ -1,5 +1,8 @@
 #/bin/bash
+## Author's note: This is so shit (￣ヘ￣)
+
 nixDir=$HOME/.config/nixConf
+nixUser="sphericalpb"
 nixHost="Spherical-Nix"
 # > cd to $nixDir 
 # > format the nix configuration 
@@ -14,19 +17,30 @@ function rebuild() {
 
 # Custom flags. 
 # Adding the flag '-s' along with the script skips the git commit and push processes 
-while getopts "hsu" opt;do
+while getopts "hasu" opt;do
   case $opt in
   h)
-    echo "rebuild-switch [-h|-s|-u]"
-    printf "%s\n" "-h | show list of a available flags" "-s | skip git commit and push" "-u | update flakes packages"
+    echo "rebuild-switch [-h|-a|-s|-u]"
+    printf "%s\n" "-h | show list of a available flags" "-a | rebuild home-manager config" "-s | skip git commit and push" "-u | update flakes packages"
     exit
     ;;
+  a)
+    function rebuild() { 
+      pushd $nixDir
+      alejandra .
+      git add .
+      nh home switch -c $nixUser@$nixHost
+    }
+    ;;
   s)
-    echo "Skipping commit and push procedures..."
     ;;
   u) 
     pushd $nixDir; nix flake update; popd
     ;;
+  ?)
+    printf "%s\n\n" "Invalid option: -$opt" "rebuild-switch [-h|-s|-u]"
+    printf "%s\n" "-h | show list of a available flags" "-s | skip git commit and push" "-u | update flakes packages"
+    exit
   esac
 done
 
@@ -48,6 +62,9 @@ if [[ ! \ $*\  == *\ -s\ * ]]; then
     git push
     echo =============================
     printf " > %s " "Successful commit: \"$commitName\""
+  else
+    echo =============================
+    echo "Skipping commit and push procedures..."
 fi
 # Moves the user back to the previous directory, before the script was ran.
 popd

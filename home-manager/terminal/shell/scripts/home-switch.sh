@@ -1,4 +1,6 @@
 #/bin/bash
+## Author's note: This is so shit (￣ヘ￣)
+
 nixDir=$HOME/.config/nixConf
 nixUser="sphericalpb"
 nixHost="Spherical-Nix"
@@ -18,12 +20,11 @@ function rebuild() {
 while getopts "hsu" opt;do
   case $opt in
   h)
-    echo "home-switch [-h|-s|-u]"
+    echo "rebuild-switch [-h|-s|-u]"
     printf "%s\n" "-h | show list of a available flags" "-s | skip git commit and push" "-u | update flakes packages"
     exit
     ;;
   s)
-    echo "Skipping commit and push procedures..."
     ;;
   u) 
     pushd $nixDir; nix flake update; popd
@@ -37,7 +38,7 @@ rebuild
 if [[ ! \ $*\  == *\ -s\ * ]]; then
     echo =============================
     echo 'Please enter a commit name? (keep empty for timestamp)' 
-    read -p '> ' commitName
+    read -p '> '  commitName
     if [[ ! -n $commitName ]]; then
       commitName=$(date -u +%F_%H%M%S)
       echo =============================
@@ -49,7 +50,11 @@ if [[ ! \ $*\  == *\ -s\ * ]]; then
     git push
     echo =============================
     printf " > %s " "Successful commit: \"$commitName\""
+  else
+    echo =============================
+    echo "Skipping commit and push procedures..."
 fi
 # Moves the user back to the previous directory, before the script was ran.
 popd
+
 
