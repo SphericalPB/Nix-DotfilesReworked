@@ -143,8 +143,8 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = [pkgs.mesa.drivers pkgs.amdvlk];
-      extraPackages32 = [pkgs.driversi686Linux.mesa.drivers pkgs.driversi686Linux.amdvlk];
+      extraPackages = [pkgs.mesa pkgs.amdvlk];
+      extraPackages32 = [pkgs.driversi686Linux.mesa pkgs.driversi686Linux.amdvlk];
       # For graphics version compatibility with Hyprland
       #extraPackages = [pkgs-unstable.mesa.drivers pkgs.amdvlk];
       #extraPackages32 = [pkgs-unstable.driversi686Linux.mesa.drivers pkgs.driversi686Linux.amdvlk];

@@ -16,11 +16,10 @@ function rebuild() {
 }
 
 # Custom flags. 
-# Adding the flag '-s' along with the script skips the git commit and push processes 
 while getopts "hasu" opt;do
   case $opt in
   h)
-    echo "rebuild-switch [-h|-a|-s|-u]"
+    printf "%s\n\n" "rebuild-switch [-h|-a|-s|-u]"
     printf "%s\n" "-h | show list of a available flags" "-a | rebuild home-manager config" "-s | skip git commit and push" "-u | update flakes packages"
     exit
     ;;
@@ -40,7 +39,8 @@ while getopts "hasu" opt;do
   ?)
     printf "%s\n\n" "Invalid option: -$opt" "rebuild-switch [-h|-s|-u]"
     printf "%s\n" "-h | show list of a available flags" "-s | skip git commit and push" "-u | update flakes packages"
-    exit
+    exit 1
+    ;;
   esac
 done
 
