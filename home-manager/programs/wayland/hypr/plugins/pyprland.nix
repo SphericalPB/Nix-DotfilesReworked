@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     pyprland
   ];
@@ -19,9 +15,6 @@
         # toggle_special
         "$mod, D, togglespecialworkspace, backdoor"
         "$modShift, D, exec, pypr toggle_special backdoor"
-        # magnify
-        #"$mod, D, exec, pypr zoom +2"
-        #"$modShift, D, exec, pypr zoom"
       ];
     };
   };
@@ -32,7 +25,7 @@
 
     [scratchpads.term]
     animation = "fromTop"
-    command = "uwsm app -- kitty --class kitty-dropterm"
+    command = "uwsm app -- kitty --class kitty-term"
     class = "kitty-dropterm"
     size = "88% 55%"
     margin = 10
