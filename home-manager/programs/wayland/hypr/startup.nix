@@ -10,6 +10,7 @@
         #"systemctl --user enable --now hyprpolkitagent.service"
         "xwaylandvideobridge"
         "uwsm app -- swww-daemon"
+        "pypr &"
         "wlsunset -l 13 -L 122"
         # Clipboard
         "wl-paste --type text --watch cliphist store"
