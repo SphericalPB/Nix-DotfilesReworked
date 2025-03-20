@@ -4,6 +4,11 @@
 nixDir=$HOME/.config/nixConf
 nixUser="sphericalpb"
 nixHost="Spherical-Nix"
+
+# Silence pushd and popd
+function pushd() { builtin pushd "$@" > /dev/null; }
+function popd() { builtin popd "$@" > /dev/null; }
+
 # > cd to $nixDir 
 # > format the nix configuration 
 # > notify git if there has been changes in the $nixDir directory
