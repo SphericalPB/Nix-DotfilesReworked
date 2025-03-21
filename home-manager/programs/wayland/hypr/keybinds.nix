@@ -56,14 +56,14 @@ in {
           "$mod, mouse_down, workspace, e-1"
 
           # Manage Special Workspace
-          #"$modShift, D, exec, uwsm app -- scratchpad"
-          #"$mod, D, exec, uwsm app -- scratchpad -g"
+          "$modShift, D, exec, uwsm app -- scratchpad"
+          "$mod, D, exec, uwsm app -- scratchpad -g"
 
           # Dropdown Applications
-          #"$mod, A, exec, uwsm app -- hdrop -f -g 20 -w 90 kitty --class dropdown-term"
-          #"$ctrlShift, F, exec, uwsm app -- hdrop -f -g 20 -w 90 kitty --class dropdown-file superfile"
-          #"$modAlt, T, exec, uwsm app -- hdrop -f -g 20 -w 90 -p bottom kitty --class dropdrown-sys btop"
-          #"$modAlt, V, exec, uwsm app -- hdrop -f -g 1130 -h 85 -w 40 -p left -c org.pulseaudio.pavucontrol pavucontrol"
+          "$mod, A, exec, uwsm app -- hdrop -f -g 20 -w 90 kitty --class dropdown-term"
+          "$ctrlShift, F, exec, uwsm app -- hdrop -f -g 20 -w 90 kitty --class dropdown-file superfile"
+          "$modAlt, T, exec, uwsm app -- hdrop -f -g 20 -w 90 -p bottom kitty --class dropdrown-sys btop"
+          "$modAlt, V, exec, uwsm app -- hdrop -f -g 1130 -h 85 -w 40 -p left -c org.pulseaudio.pavucontrol pavucontrol"
 
           ## Utilities
           "$modShift, Q, exec, uwsm app -- wlogout"

@@ -48,13 +48,13 @@
     class = "kitty-sys"
     size = "88% 45%"
     margin = 20
-    class = "org.pulseaudio.pavucontrol"
-    match_by = "class"
+
 
     [scratchpads.vol]
     animation = "fromright"
     command = "uwsm app -- pavucontrol"
-    class = "pavucontrol"
+    matchby = "class"
+    class = "org.pulseaudio.pavucontrol"
     size = "40% 85%"
     margin = 20
     unfocus = "hide"
