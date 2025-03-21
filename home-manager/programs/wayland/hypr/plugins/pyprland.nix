@@ -48,8 +48,8 @@
     class = "kitty-sys"
     size = "88% 45%"
     margin = 20
-    match_by = "class"
     class = "org.pulseaudio.pavucontrol"
+    match_by = "class"
 
     [scratchpads.vol]
     animation = "fromright"
