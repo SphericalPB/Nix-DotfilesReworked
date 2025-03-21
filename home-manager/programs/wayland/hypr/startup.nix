@@ -8,10 +8,10 @@
       exec-once = [
         # Super User Password Prompt for GUI Applications
         #"systemctl --user enable --now hyprpolkitagent.service"
-        "xwaylandvideobridge"
+        "uwsm app -- xwaylandvideobridge"
         "uwsm app -- swww-daemon"
-        "pypr &"
-        "wlsunset -l 13 -L 122"
+        "uwsm app -- pypr"
+        "uwsm app -- wlsunset -l 13 -L 122"
         # Clipboard
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"

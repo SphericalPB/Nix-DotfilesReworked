@@ -21,30 +21,35 @@
 
   home.file.".config/hypr/pyprland.toml".text = ''
     [pyprland]
-    plugins = ["scratchpads", "toggle_special", "magnify"]
+    plugins = ["scratchpads", "toggle_special"]
+
+    [scratchpads.fromTop]
+    animation = "fromTop"
+    size = "88% 45%"
+    margin = 10
+    allow_special_workspaces = true
+    restore_excluded = true
 
     [scratchpads.term]
-    animation = "fromTop"
     command = "uwsm app -- kitty --class kitty-term"
     class = "kitty-dropterm"
-    size = "88% 55%"
-    margin = 10
+    use = "fromTop"
     excludes = ["fm"]
 
     [scratchpads.fm]
-    animation = "fromTop"
     command = "uwsm app -- kitty --class kitty-fm superfile"
     class = "kitty-fm"
-    size = "88% 55%"
-    margin = 10
+    use = "fromTop"
     excludes = ["term"]
 
     [scratchpads.sys]
-    animation = "fromBottom"
     command = "uwsm app -- kitty --class kitty-sys btop"
+    animation = "fromBottom"
     class = "kitty-sys"
     size = "88% 45%"
     margin = 20
+    match_by = "class"
+    class = "org.pulseaudio.pavucontrol"
 
     [scratchpads.vol]
     animation = "fromright"
