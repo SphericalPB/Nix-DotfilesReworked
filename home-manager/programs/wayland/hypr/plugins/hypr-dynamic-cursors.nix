@@ -10,8 +10,8 @@
       shake.enabled = false;
       mode = "tilt";
       shaperule = [
-        #"grab, rotate, rotate:length:20"
-        "grab, stretch, stretch:limit: 1500"
+        "grab, rotate, rotate:length:20"
+        #"grab, stretch, stretch:limit: 1500"
       ];
     };
   };

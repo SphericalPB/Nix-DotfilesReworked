@@ -5,23 +5,23 @@
 
   wayland.windowManager.hyprland = {
     settings = {
-      exec-once = ["pypr"];
+      exec-once = ["uwsm app -- pypr"];
       bind = [
         # scratchpads
         "$mod, A, exec, pypr toggle term"
         "CTRL SHIFT, F, exec, pypr toggle fm"
         "$modAlt,T,exec,pypr toggle sys"
         "$modAlt,V,exec,pypr toggle vol"
-        # toggle_special
-        "$mod, D, togglespecialworkspace, backdoor"
-        "$modShift, D, exec, pypr toggle_special backdoor"
       ];
     };
   };
 
   home.file.".config/hypr/pyprland.toml".text = ''
     [pyprland]
-    plugins = ["scratchpads", "toggle_special"]
+    # hyprland deprecated the old windowrule method (v1) in place of windowrulev2, which broke some regex detection used by scratchpad
+    # Temporary fix. https://github.com/hyprland-community/pyprland/issues/164
+    hyprland_version = '0.47.3'
+    plugins = ["scratchpads"]
 
     [scratchpads.fromTop]
     animation = "fromTop"
@@ -48,7 +48,6 @@
     class = "kitty-sys"
     size = "88% 45%"
     margin = 20
-
 
     [scratchpads.vol]
     animation = "fromright"

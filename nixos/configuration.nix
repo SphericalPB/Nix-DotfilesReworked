@@ -154,12 +154,11 @@
   };
 
   services = {
-    # Display-Manager/Login Screen
-    #displayManager.sddm = {
-    #  enable = true;
-    #  wayland.enable = true;
-    #};
-
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+    desktopManager.plasma6.enable = true;
     # Xorg/X11
     xserver = {
       enable = true;
@@ -177,7 +176,6 @@
           luadbi-mysql
         ];
       };
-
       xkb = {
         layout = "ph";
         options = "shift:both_capslock";
@@ -273,6 +271,7 @@
       nix-init # Easilly Generate Nix-Packages from urls
       nix-du # Storage Analyzer for /nix
       # Useful CLI Packages
+      toybox # Lightweight implementation of some Unix CLI utilities
       alsa-utils # Extra Utilities for Audio Management
       playerctl # Pause, Play, Change Volume, etc
       libnotify # Extra Utilities for Managing Notifications
@@ -286,6 +285,7 @@
       neovim # Preferred text editor
       lunarvim # IDE-like configuration/layer for Neovim
       git # Manage Projects/Dotfiles With Git!
+      temurin-jre-bin # Java Runtime
       xdg-user-dirs # Automatically Create or Modify User Folders
       # Better CLI alternatives
       lsd # Better 'ls'
@@ -317,7 +317,7 @@
   ];
 
   environment.sessionVariables = {
-    GDK_BACKEND = "wayland, x11";
+    #GDK_BACKEND = "wayland, x11";
     # Required by nh(nix-helper)
     FLAKE = "/home/sphericalpb/.config/nixConf";
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
