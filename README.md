@@ -30,6 +30,8 @@ nix flake update --commit-lock-file
 Then rebuild switch either the nixos config or home-manager config (or both)\
 to update the installed programs
 
+---
+
 #### TODO:
 - [x] Create a script that automatically commit and push the config to github
 - [ ] Replace pyprland's scratchpads with a standalone hyprland plugin
