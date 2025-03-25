@@ -14,62 +14,81 @@ function popd() { builtin popd "$@" > /dev/null; }
 # > notify git if there has been changes in the $nixDir directory
 # > rebuild and switch to latest home-manager config
 function rebuild() { 
-  pushd $nixDir
+  pushd "$nixDir"
   alejandra .
   git add .
-  nh os switch -H $nixHost
+  nh os switch -H "$nixHost" "$@"
 }
+
+homeRebuild=""
+skipCommit=""
+updateFlag=""
 
 # Custom flags. 
 while getopts "hasu" opt;do
   case $opt in
   h)
     printf "%s\n\n" "rebuild-switch [-h|-a|-s|-u]"
-    printf "%s\n" "-h | show list of a available flags" "-a | rebuild home-manager config" "-s | skip git commit and push" "-u | update flakes packages"
+    printf "%s\n" \
+      "-h | show list of a available flags" \
+      "-a | rebuild home-manager config" "-s | skip git commit and push" \ 
+      "-u | update flakes packages"
     exit
     ;;
   a)
-    function rebuild() { 
-      pushd $nixDir
-      alejandra .
-      git add .
-      nh home switch -c $nixUser@$nixHost
-    }
+    homeRebuild="1"
     ;;
-  s)
+  s) 
+    skipCommit="1"
     ;;
   u) 
-    pushd $nixDir; nix flake update; popd
+    updateFlag="-u"
     ;;
   ?)
-    printf "%s\n\n" "Invalid option: -$opt" "rebuild-switch [-h|-s|-u]"
-    printf "%s\n" "-h | show list of a available flags" "-s | skip git commit and push" "-u | update flakes packages"
+    printf "%s\n\n" "Invalid option: -$opt" "rebuild-switch [-h|-a|-s|-u]"
+    printf "%s\n" \ 
+      "-h | show list of a available flags" \
+      "-a | rebuild home-manager config" \
+      "-s | skip git commit and push"
     exit 1
     ;;
   esac
 done
 
-rebuild
+# If homeRebuild is a non-empty string, then overwrite the rebuild function 
+# that rebuilds the home-manager configuration instead of system.
+if [[ -n "$homeRebuild" ]]; then
+  function rebuild() { 
+    pushd "$nixDir"
+    alejandra .
+    git add .
+    nh home switch -c "$nixUser@$nixHost" "$@"
+  }
+fi
 
-# If there the flag omitted isnt '-s', ask for the commit name.
-if [[ ! \ $*\  == *\ -s\ * ]]; then
+# Update while rebuilding home/system if the user appends "-u".
+rebuild $updateFlag
+
+# If skipCommit is an empty string, then do commit and push procedure
+# Else, skip it entirely.
+if [[ -z "$skipCommit" ]]; then
+  echo =============================
+  echo 'Please enter a commit name? (keep empty for timestamp)' 
+  read -p '> '  commitName
+  if [[ ! -n "$commitName" ]]; then
+    commitName=$(date -u +%F_%H%M%S)
     echo =============================
-    echo 'Please enter a commit name? (keep empty for timestamp)' 
-    read -p '> '  commitName
-    if [[ ! -n $commitName ]]; then
-      commitName=$(date -u +%F_%H%M%S)
-      echo =============================
-      printf " > %s\n > %s\n" "No input found" "Setting commit name to timestamp: \"$commitName\""
-    fi
-    echo =============================
-    echo " > Setting up git commit..."
-    git commit -am "$commitName" 
-    git push
-    echo =============================
-    printf " > %s " "Successful commit: \"$commitName\""
-  else
-    echo =============================
-    echo "Skipping commit and push procedures..."
+    printf " > %s\n > %s\n" "No input found" "Setting commit name to timestamp: \"$commitName\""
+  fi
+  echo =============================
+  echo " > Setting up git commit..."
+  git commit -am "$commitName" 
+  git push
+  echo =============================
+  printf " > %s " "Successful commit: \"$commitName\""
+else
+  echo =============================
+  echo "Skipping commit and push procedures..."
 fi
 # Moves the user back to the previous directory, before the script was ran.
 popd
