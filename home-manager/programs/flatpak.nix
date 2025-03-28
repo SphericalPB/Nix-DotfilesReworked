@@ -1,13 +1,16 @@
 {
   inputs,
-  pkgs,
   lib,
   ...
 }: {
+  # Declarative Flatpak Manager for NixOS
+  # https://github.com/gmodena/nix-flatpak
   imports = [inputs.nix-flatpak.homeManagerModules.nix-flatpak];
 
   services.flatpak = {
     enable = true;
+    update.onCalendar = "weekly";
+    #update.onActivation = true;
     remotes = lib.mkOptionDefault [
       {
         name = "flathub-beta";
