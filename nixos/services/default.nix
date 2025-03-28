@@ -1,5 +1,6 @@
 {
   imports = [
+    ./greetd.nix
     ./stylix.nix
     #./keyd.nix
     #./mysql.nix
