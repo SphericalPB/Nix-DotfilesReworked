@@ -154,11 +154,6 @@
   };
 
   services = {
-    displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-    desktopManager.plasma6.enable = true;
     # Xorg/X11
     xserver = {
       enable = true;
@@ -271,7 +266,7 @@
       nix-init # Easilly Generate Nix-Packages from urls
       nix-du # Storage Analyzer for /nix
       # Useful CLI Packages
-      toybox # Lightweight implementation of some Unix CLI utilities
+      #toybox # Lightweight implementation of some Unix CLI utilities
       alsa-utils # Extra Utilities for Audio Management
       playerctl # Pause, Play, Change Volume, etc
       libnotify # Extra Utilities for Managing Notifications

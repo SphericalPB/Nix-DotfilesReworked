@@ -82,14 +82,14 @@ in {
 
           # Screenshot
           # Fullscreen Screenshot
-          ", Print, exec, uwsm app -- grimblast --notify --cursor copysave output $shotDir"
+          ", Print, exec, grimblast --notify --cursor copysave output $shotDir"
 
           # Select Area Screenshot
           # stop animations while screenshotting; makes black border go away -fufexan
-          "$ctrl, Print, exec, uwsm app -- ${screenshotarea}"
+          "$ctrl, Print, exec, ${screenshotarea}"
 
           # Annotate Select Area
-          "$mod, Print, exec, uwsm app -- grimblast save area - | uwsm app -- satty --filename - --fullscreen --output-filename $shotDir"
+          "$mod, Print, exec, grimblast save area - | uwsm app -- satty --filename - --fullscreen --output-filename $shotDir"
         ]
         ++ workspaces;
 

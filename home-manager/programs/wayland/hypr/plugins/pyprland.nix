@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    pyprland
+    unstable.pyprland
   ];
 
   wayland.windowManager.hyprland = {
@@ -28,10 +28,9 @@
     size = "88% 45%"
     margin = 10
     allow_special_workspaces = true
-    restore_excluded = true
 
     [scratchpads.term]
-    command = "uwsm app -- kitty --class kitty-term"
+    command = "uwsm app -- kitty --class kitty-dropterm"
     class = "kitty-dropterm"
     use = "fromTop"
     excludes = ["fm"]
@@ -57,6 +56,6 @@
     size = "40% 85%"
     margin = 20
     unfocus = "hide"
-    hysteresis = 1
+    hysteresis = 0.8
   '';
 }

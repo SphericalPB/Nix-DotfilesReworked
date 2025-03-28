@@ -9,9 +9,8 @@
       exec-once = [
         # Super User Password Prompt for GUI Applications
         #"systemctl --user enable --now hyprpolkitagent.service"
-        #"uwsm app -- xwaylandvideobridge"
         "uwsm app -- swww-daemon"
-        "uwsm app -- hdrop -b"
+        #"uwsm app -- hdrop -b"
         "uwsm app -- wlsunset -l 13 -L 122"
         # Clipboard
         "wl-paste --type text --watch cliphist store"
