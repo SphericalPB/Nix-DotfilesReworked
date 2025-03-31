@@ -98,7 +98,8 @@
     bottles # Bottles! An Easy-to-Use Wine-Prefix Manager
     protonup # GUI Proton Manager
     mangohud # System-Performance Stats for Games
-    suyu # A Community Recontiuation of YUZU Emulator
+    suyu # A Community Recontiuation of YUZU(Nintendo Switch) Emulator
+    prismlauncher # Popular Open-Source Minecraft Launcher
   ];
 
   # Nicely reload system units when changing configs

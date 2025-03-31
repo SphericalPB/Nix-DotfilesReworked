@@ -12,8 +12,8 @@
       gaps_in = 7;
       gaps_out = 21;
       border_size = 3;
-      #"col.active_border" = "rgb(${config.colorScheme.palette.base0A}) rgb(${config.colorScheme.palette.base0D}) 45deg";
-      #"col.inactive_border" = "rgb(${config.colorScheme.palette.base02}) rgb(${config.colorScheme.palette.base03}) 45deg";
+      "col.active_border" = "rgb(${config.colorScheme.palette.base0A}) rgb(${config.colorScheme.palette.base0D}) 45deg";
+      "col.inactive_border" = "rgb(${config.colorScheme.palette.base02}) rgb(${config.colorScheme.palette.base03}) 45deg";
       allow_tearing = false;
     };
 
@@ -22,8 +22,8 @@
       #dim_inactive = true;
       #dim_strength = 0.15;
       #dim_special = 0.3;
-      #active_opacity = 1.0;
-      #inactive_opacity = 0.98;
+      active_opacity = 1.0;
+      inactive_opacity = 0.92;
       blur = {
         enabled = true;
         new_optimizations = true;
@@ -40,7 +40,7 @@
         offset = "2 3";
         range = 16;
         render_power = 2;
-        #color = "0x801a1a1a";
+        color = "0x801a1a1a";
       };
     };
 
@@ -58,11 +58,11 @@
 
     misc = {
       disable_hyprland_logo = true;
-      #background_color = "rgb(${config.colorScheme.palette.base00})";
+      background_color = "rgb(${config.colorScheme.palette.base00})";
       disable_splash_rendering = true;
       vfr = true;
       enable_swallow = true;
-      #swallow_regex = "kitty";
+      swallow_regex = "kitty";
     };
   };
 }

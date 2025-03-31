@@ -4,19 +4,17 @@
       # Window Rules
       # [https://wiki.hyprland.org/Configuring/Window-Rules]
       windowrule = [
+        ## Prevent Browser from being transparent in certain webpages
+        "opaque, title:(.*)(- YouTube)(.*)"
         ## Picture-in-Picture Fix
-        # Discord
-        "float, initialtitle:^(Discord Popout)$"
-        "pin, initialtitle:^(Discord Popout)$"
-        "bordersize 0, title:^(Discord Popout)$"
-        # Firefox
-        "float, title:^(Picture-in-Picture)$"
-        "pin, title:^(Picture-in-Picture)$"
-        "noinitialfocus, title:^(Picture-in-Picture)$"
-        "bordersize 0, title:^(Picture-in-Picture)$"
-        ## Floating Browser(Firefox) Extension Window
-        "float, title:^(Extension: )(.*)"
-        "pin, title:^(Extension: )(.*)"
+        "tag +pip, initialtitle:^(Discord Popout)$"
+        "tag +pip, title:^(Discord Popout)$"
+        "tag +pip, title:^(Picture-in-Picture)$"
+
+        "float, tag:pip*"
+        "pin, tag:pip*"
+        "noborder, tag:pip*"
+        "opaque, tag:pip*"
       ];
       # Workspace Rules
       # [https://wiki.hyprland.org/Configuring/Workspace-Rules]

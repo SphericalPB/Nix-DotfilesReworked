@@ -9,8 +9,11 @@
 
   services.flatpak = {
     enable = true;
-    update.onCalendar = "weekly";
-    #update.onActivation = true;
+    update.auto = {
+      enable = true;
+      onCalendar = "weekly";
+      #onActivation = true;
+    };
     remotes = lib.mkOptionDefault [
       {
         name = "flathub-beta";
