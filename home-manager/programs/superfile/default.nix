@@ -14,10 +14,10 @@
     theme = 'catppuccin-macchiato'
     #
     # The editor files will be opened with. (Leave blank to use the EDITOR environment variable).
-    file_editor = "nvim"
+    editor = "lvim"
     #
     # The editor directories will be opened with. (Leave blank to use the default editors).
-    dir_editor = ""
+    dir_editor = "lvim"
     #
     # Auto check for update
     auto_check_update = true
@@ -28,6 +28,12 @@
     #
     # Whether to open file preview automatically every time superfile is opened.
     default_open_file_preview = true
+    #
+    # Shows the image preview in file preview panel when an image file is selected.
+    show_image_preview = true
+    #
+    # Use the builtin syntax highlighting for code files with chroma.
+    code_previewer = ""
     #
     # The path of the first file panel when superfile is opened.
     default_directory = "."

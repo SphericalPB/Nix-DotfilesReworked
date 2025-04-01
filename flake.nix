@@ -58,10 +58,10 @@
     };
 
     # Wayland krunner-like Runner
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #anyrun = {
+    #  url = "github:anyrun-org/anyrun";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     # Spice up your Spotify Client with themes and plugins!
     spicetify-nix = {
@@ -70,10 +70,10 @@
     };
 
     # Grayjay, "Follow Creators, Not Platforms."
-    grayjay = {
-      type = "git";
-      url = "https://codeberg.org/quasigod/nur.git";
-    };
+    #grayjay = {
+    #  type = "git";
+    #  url = "https://codeberg.org/quasigod/nur.git";
+    #};
 
     # Zen Browser, A Beautiful Firefox Fork with ARC-like features
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
