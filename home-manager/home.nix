@@ -95,7 +95,7 @@
     legcord # Using the legcord client instead.
     inputs.zen-browser.packages."${system}".default # A Beautiful ARC-like Firefox Fork
     #inputs.grayjay.packages."${system}".grayjay-desktop # Grayjay ( Follow Creators, Not Platforms )
-    bottles # Bottles! An Easy-to-Use Wine-Prefix Manager
+    #bottles # Bottles! An Easy-to-Use Wine-Prefix Manager
     protonup # GUI Proton Manager
     mangohud # System-Performance Stats for Games
     suyu # A Community Recontiuation of YUZU(Nintendo Switch) Emulator
