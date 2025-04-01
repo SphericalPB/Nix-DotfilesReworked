@@ -69,7 +69,7 @@
   #swapDevices = [];
   swapDevices = [{device = "/swap/swapfile";}];
   # Change how aggressive the kernel uses the swap space
-  boot.kernel.sysctl = {"vm.swappiness" = 10;};
+  boot.kernel.sysctl = {"vm.swappiness" = 1;};
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
