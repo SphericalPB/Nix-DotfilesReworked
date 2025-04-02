@@ -21,4 +21,8 @@ in {
     TTYVHangup = true;
     TTYTDisallocate = true;
   };
+
+  services.xserver = {
+    displayManager.startx.enable = true;
+  };
 }
