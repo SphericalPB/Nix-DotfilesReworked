@@ -154,7 +154,6 @@
   };
 
   services = {
-    displayManager.enable = true;
     # Xorg/X11
     xserver = {
       enable = true;
@@ -165,13 +164,13 @@
         #noDesktop = true;
         #enableXfwm = false;
       };
-      windowManager.awesome = {
-        enable = true;
-        luaModules = with pkgs.luaPackages; [
-          luarocks
-          luadbi-mysql
-        ];
-      };
+      # windowManager.awesome = {
+      #   enable = true;
+      #   luaModules = with pkgs.luaPackages; [
+      #     luarocks
+      #     luadbi-mysql
+      #   ];
+      # };
       xkb = {
         layout = "ph";
         options = "shift:both_capslock";
