@@ -154,6 +154,7 @@
   };
 
   services = {
+    displayManager.enable = true;
     # Xorg/X11
     xserver = {
       enable = true;
