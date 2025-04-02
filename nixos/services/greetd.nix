@@ -1,23 +1,24 @@
-{
-  lib,
-  config,
-  ...
-}: {
+{pkgs, ...}: let
+  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
+  hyprland = "${pkgs.hyprland}/share/wayland-sessions";
+in {
   services.greetd = {
     enable = true;
+    settings = {
+      default_session = {
+        command = "${tuigreet} --time --remember --remember-session ${hyprland}";
+        user = "greeter";
+      };
+    };
   };
 
-  # Hyprland configuration, to be used by greetd using hyprland as its compositor
-  #environment.etc."greetd/hyprland.conf".text = ''
-  #  exec-once = regreet; hyprctl dispatch exit
-  #  misc {
-  #    disable_hyprland_logo = true
-  #    disable_splash_rendering = true
-  #    disable_hyprland_qtutils_check = true
-  #  }
-  #'';
-
-  programs.regreet = {
-    enable = true;
+  systemd.services.greetd.serviceConfig = {
+    Type = "idle";
+    StandardInput = "tty";
+    StandardOutput = "tty";
+    StandardError = "journal";
+    TTYReset = true;
+    TTYVHangup = true;
+    TTYTDisallocate = true;
   };
 }
