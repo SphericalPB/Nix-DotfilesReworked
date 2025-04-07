@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+  networking.firewall.allowedTCPPorts = [3306];
   services = {
     # For org.freedesktop.secrets to work required by MySQL
     gnome.gnome-keyring.enable = true;
@@ -12,7 +13,7 @@
   security.pam.services.lightdm.enableGnomeKeyring = true;
   programs.ssh.startAgent = true;
 
-  environment.systemPackages = with pkgs; [
-    mysql-workbench
+  environment.systemPackages = [
+    pkgs.mysql-workbench
   ];
 }
