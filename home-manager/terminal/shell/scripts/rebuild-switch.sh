@@ -66,7 +66,7 @@ if [[ -n "$homeRebuild" ]]; then
   }
 fi
 
-# Update while rebuilding home/system if the user appends "-u".
+# If the user appends "-u", update while rebuilding home/system 
 rebuild $updateFlag
 
 # If skipCommit is an empty string, then do commit and push procedure

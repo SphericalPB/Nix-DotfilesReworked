@@ -14,8 +14,6 @@
       };
     };
   };
-  services.mysql.enable = true;
-  services.mysql.package = pkgs.mariadb;
 
   # hacky way to create our directory structure and index page... don't actually use this
   systemd.tmpfiles.rules = [
