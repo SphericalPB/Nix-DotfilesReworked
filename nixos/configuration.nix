@@ -84,12 +84,12 @@
       ];
     };
 
-    # Nix Store Garbage Collection
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 10d";
-    };
+    # Nix Store Garbage Collection (replaced in favor for nix-helper's gc implementation: https://github.com/nix-community/nh)
+    #gc = {
+    #  automatic = true;
+    #  dates = "daily";
+    #  options = "--delete-older-than 10d";
+    #};
 
     # Opinionated: disable channels
     channel.enable = false;
@@ -221,6 +221,16 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   programs = {
+    # Nix cli helper: https://github.com/nix-community/nh
+    nh = {
+      enable = true;
+      clean = {
+        enable = true;
+        extraArgs = "--keep-since 4d --keep 3";
+      };
+      flake = "/home/sphericalpb/.config/nixConf";
+    };
+
     fish.enable = true;
     # Wrap and Install Comma
     # Run packages Without Installing or Running 'nix-shell'
@@ -260,7 +270,6 @@
   environment = {
     systemPackages = with pkgs; [
       # Nix related packages
-      nh # Nix-Helper
       alejandra # Configuration Formatter to Match Specific Style-Rules
       manix # Fast CLI Documentation Searcher for nix
       nix-init # Easilly Generate Nix-Packages from urls
@@ -313,8 +322,6 @@
 
   environment.sessionVariables = {
     #GDK_BACKEND = "wayland, x11";
-    # Required by nh(nix-helper)
-    FLAKE = "/home/sphericalpb/.config/nixConf";
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
   };
 
