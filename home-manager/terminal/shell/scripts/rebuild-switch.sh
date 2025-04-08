@@ -16,6 +16,7 @@ function popd() { builtin popd "$@" > /dev/null; }
 function rebuild() { 
   pushd "$nixDir"
   alejandra .
+  git add -N .
   nh os switch -H "$nixHost" "$@"
 }
 
@@ -60,6 +61,7 @@ if [[ -n "$homeRebuild" ]]; then
   function rebuild() { 
     pushd "$nixDir"
     alejandra .
+    git add -N .
     nh home switch -c "$nixUser@$nixHost" "$@"
   }
 fi
@@ -70,8 +72,7 @@ rebuild $updateFlag
 # If skipCommit is an empty string, then do commit and push procedure
 # Else, skip it entirely.
 if [[ -z "$skipCommit" ]]; then
-
-  git diff | delta # show the changes between the current and the previous config version
+  git diff | delta --features side-by-side | command cat # show the changes between the current and the previous config version
   echo =============================
   echo 'Please enter a commit name? (keep empty for timestamp)' 
   read -p '> '  commitName
