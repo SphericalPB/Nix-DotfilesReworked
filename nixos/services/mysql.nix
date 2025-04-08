@@ -7,7 +7,7 @@
     mysql = {
       enable = true;
       package = pkgs.mariadb;
-      user = "root";
+      user = "";
     };
   };
 
