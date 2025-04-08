@@ -266,7 +266,6 @@
       nix-init # Easilly Generate Nix-Packages from urls
       nix-du # Storage Analyzer for /nix
       # Useful CLI Packages
-      #toybox # Lightweight implementation of some Unix CLI utilities
       alsa-utils # Extra Utilities for Audio Management
       playerctl # Pause, Play, Change Volume, etc
       libnotify # Extra Utilities for Managing Notifications
@@ -288,6 +287,7 @@
       btop # Better 'htop'/Terminal Task-Manager
       ripgrep # Better 'grep'
       bat # Better 'cat'
+      delta # Better 'git diff' pager, based on 'bat'
       # DE/WM/GUI starter kit!
       kitty # Terminal of Choice!
       polkit # Password Prompt for GUI Programs that require root
