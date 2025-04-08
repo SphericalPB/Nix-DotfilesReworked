@@ -73,7 +73,7 @@ rebuild $updateFlag
 # Else, skip it entirely.
 if [[ -z "$skipCommit" ]]; then
   git diff | DELTA_PAGER="cat" delta --features side-by-side # show the changes between the current and the previous config version
-  echo ========================
+  echo =============================
   echo 'Please enter a commit name? (keep empty for timestamp)' 
   read -p '> '  commitName
   if [[ ! -n "$commitName" ]]; then
