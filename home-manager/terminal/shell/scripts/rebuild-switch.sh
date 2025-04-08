@@ -78,7 +78,7 @@ if [[ -z "$skipCommit" ]]; then
   read -p '> '  commitName
   if [[ ! -n "$commitName" ]]; then
     commitName=$(date -u +%F_%H%M%S)
-    echo =============================
+    echo ==============================
     printf " > %s\n > %s\n" "No input found" "Setting commit name to timestamp: \"$commitName\""
   fi
   echo =============================
