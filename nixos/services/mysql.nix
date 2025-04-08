@@ -7,10 +7,11 @@
     mysql = {
       enable = true;
       package = pkgs.mariadb;
+      user = "root";
     };
   };
 
-  security.pam.services.lightdm.enableGnomeKeyring = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
   programs.ssh.startAgent = true;
 
   environment.systemPackages = [
