@@ -72,8 +72,8 @@ rebuild $updateFlag
 # If skipCommit is an empty string, then do commit and push procedure
 # Else, skip it entirely.
 if [[ -z "$skipCommit" ]]; then
-  git diff | delta --features side-by-side | command cat # show the changes between the current and the previous config version
-  echo =============================
+  git diff | DELTA_PAGER="cat" delta --features side-by-side # show the changes between the current and the previous config version
+  echo ========================
   echo 'Please enter a commit name? (keep empty for timestamp)' 
   read -p '> '  commitName
   if [[ ! -n "$commitName" ]]; then
