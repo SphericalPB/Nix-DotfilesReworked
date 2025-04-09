@@ -18,6 +18,7 @@ function rebuild() {
   alejandra .
   git add -N .
   nh os switch -H "$nixHost" "$@"
+  git diff | DELTA_PAGER="cat" delta --features side-by-side # show the changes between the current and the previous config version
 }
 
 homeRebuild=""
@@ -63,6 +64,7 @@ if [[ -n "$homeRebuild" ]]; then
     alejandra .
     git add -N .
     nh home switch -c "$nixUser@$nixHost" "$@"
+    git diff | DELTA_PAGER="cat" delta --features side-by-side # show the changes between the current and the previous config version
   }
 fi
 
@@ -72,7 +74,6 @@ rebuild $updateFlag
 # If skipCommit is an empty string, then do commit and push procedure
 # Else, skip it entirely.
 if [[ -z "$skipCommit" ]]; then
-  git diff | DELTA_PAGER="cat" delta --features side-by-side # show the changes between the current and the previous config version
   echo =============================
   echo 'Please enter a commit name? (keep empty for timestamp)' 
   read -p '> '  commitName
