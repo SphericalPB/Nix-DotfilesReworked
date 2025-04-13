@@ -9,11 +9,11 @@
 
   services.flatpak = {
     enable = true;
-    #update.auto = {
-    #  enable = true;
-    #  onCalendar = "weekly";
-    #  #onActivation = true;
-    #};
+    update.auto = {
+      enable = true;
+      onCalendar = "weekly";
+      #  #onActivation = true;
+    };
     remotes = lib.mkOptionDefault [
       {
         name = "flathub-beta";
@@ -26,7 +26,6 @@
         flatpakref = "https://sober.vinegarhq.org/sober.flatpakref";
         sha256 = "1pj8y1xhiwgbnhrr3yr3ybpfis9slrl73i0b1lc9q89vhip6ym2l";
       }
-      "com.usebottles.bottles"
     ];
 
     overrides = {
@@ -38,13 +37,6 @@
           # Fix un-themed cursor in some Wayland apps
           XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
         };
-      };
-
-      "com.usebottles.bottles".Context = {
-        filesystems = [
-          # For Medibang
-          "/home/sphericalpb/Pictures/Art-Stuff/Medibang-Paint"
-        ];
       };
     };
   };
