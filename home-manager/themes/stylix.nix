@@ -38,6 +38,9 @@
       name = "oreo_catppuccin-macchiato_cursors";
       size = 32;
     };
-    targets.hyprland.enable = false;
+    targets = {
+      hyprland.enable = false;
+      vscode.enable = false;
+    };
   };
 }

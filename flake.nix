@@ -7,7 +7,9 @@
     ## You can access packages and modules from different nixpkgs revs
     ## at the same time. Here's an working example:
     # nixpkgs from the master branch
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/release-24.11";
     ## Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

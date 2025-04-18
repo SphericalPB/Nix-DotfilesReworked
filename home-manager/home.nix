@@ -27,7 +27,8 @@
       # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
-      outputs.overlays.unstable-packages
+      outputs.overlays.very-unstable-packages
+      outputs.overlays.stable-packages
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -95,12 +96,14 @@
     legcord # Using the legcord client instead.
     inputs.zen-browser.packages."${system}".default # A Beautiful ARC-like Firefox Fork
     #inputs.grayjay.packages."${system}".grayjay-desktop # Grayjay ( Follow Creators, Not Platforms )
+    master.grayjay
     bottles # Bottles! An Easy-to-Use Wine-Prefix Manager
     protonup # GUI Proton Manager
     mangohud # System-Performance Stats for Games
     umu-launcher
     suyu # A Community Recontiuation of YUZU(Nintendo Switch) Emulator
     prismlauncher # Popular Open-Source Minecraft Launcher
+    gale # Thunderstore Mod-Launcher for numerous games
   ];
 
   # Nicely reload system units when changing configs

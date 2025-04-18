@@ -4,8 +4,11 @@
       # Window Rules
       # [https://wiki.hyprland.org/Configuring/Window-Rules]
       windowrule = [
+        "float, class:^(com.gabm.satty)$"
+        "opaque, class:^(com.gabm.satty)$"
         ## Prevent Browser from being transparent in certain webpages
         "opaque, title:(.*)(- YouTube)(.*)"
+
         ## Picture-in-Picture Fix
         "tag +pip, initialtitle:^(Discord Popout)$"
         "tag +pip, title:^(Discord Popout)$"

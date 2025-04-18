@@ -17,9 +17,9 @@
         "wl-paste --type image --watch cliphist store"
         "wl-clip-persist --clipboard regular"
       ];
-      #exec = [
-      #  "hyprctl setcursor 'niko_oneshot_cursors' 24"
-      #];
+      exec = [
+        "hyprctl setcursor 'oreo_catppuccin-macchiato_cursors' 32"
+      ];
     };
   };
 }
