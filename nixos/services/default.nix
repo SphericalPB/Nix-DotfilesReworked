@@ -1,6 +1,7 @@
 {
   imports = [
     ./greetd.nix
+    ./plasma.nix
     ./stylix.nix
     ./keydaemon.nix
     ./mysql.nix

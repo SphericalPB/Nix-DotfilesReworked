@@ -115,7 +115,8 @@
         53317
         8384 #Local Send
         22000 # Syncthing
-        12315 # Grayjay
+        45879 # Grayjay
+        34125
       ];
       allowedUDPPorts = [22000 21027];
     };
@@ -287,7 +288,7 @@
       cliphist # Clipboard History
       superfile # File-Manager
       neovim # Preferred text editor
-      lunarvim # IDE-like configuration/layer for Neovim
+      master.lunarvim # IDE-like configuration/layer for Neovim
       git # Manage Projects/Dotfiles With Git!
       temurin-jre-bin # Java Runtime
       xdg-user-dirs # Automatically Create or Modify User Folders
