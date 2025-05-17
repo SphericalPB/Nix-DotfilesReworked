@@ -18,7 +18,7 @@ function rebuild() {
   alejandra .
   git add -N .
   nh os switch -H "$nixHost" "$@"
-  git diff | DELTA_PAGER="cat" delta --features side-by-side # show the changes between the current and the previous config version
+  git diff | delta --features side-by-side # show the changes between the current and the previous config version
 }
 
 homeRebuild=""
@@ -64,7 +64,7 @@ if [[ -n "$homeRebuild" ]]; then
     alejandra .
     git add -N .
     nh home switch -c "$nixUser@$nixHost" "$@"
-    git diff | DELTA_PAGER="cat" delta --features side-by-side # show the changes between the current and the previous config version
+    git diff | delta --features side-by-side # show the changes between the current and the previous config version
   }
 fi
 

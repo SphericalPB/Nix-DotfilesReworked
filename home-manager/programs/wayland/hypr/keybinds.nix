@@ -1,6 +1,5 @@
 let
-  screenshotarea = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify --freeze copysave area $shotDir; hyprctl keyword animation 'fadeOut,1,4,default'";
-
+  #screenshotarea = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify --freeze copysave area $shotDir; hyprctl keyword animation 'fadeOut,1,4,default'";
   # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
   workspaces = builtins.concatLists (builtins.genList (
       x: let
@@ -76,9 +75,9 @@ in {
           # Application Launcher
           "$alt, Space, exec, uwsm app -- wofi"
           # Clipboard Menu
-          "$mod, V, exec, cliphist list | uwsm app -- rofi -dmenu | cliphist decode | wl-copy"
+          "$mod, V, exec, cliphist list | uwsm app -- wofi -S dmenu | cliphist decode | wl-copy"
           # Colorpicker
-          "$mod, P, exec, notify-send $(uwsm app -- hyprpicker --autocopy)"
+          "$alt, Print, exec, notify-send $(uwsm app -- hyprpicker --autocopy)"
 
           # Screenshot
           # Fullscreen Screenshot
@@ -86,10 +85,10 @@ in {
 
           # Select Area Screenshot
           # stop animations while screenshotting; makes black border go away -fufexan
-          "$ctrl, Print, exec, ${screenshotarea}"
+          "$ctrl, Print, exec, grimblast --notify --freeze copysave area $shotDir"
 
           # Annotate Select Area
-          "$mod, Print, exec, grimblast save area - | uwsm app -- satty --filename - --fullscreen --output-filename $shotDir"
+          "$mod, Print, exec, grimblast save area - | uwsm app -- satty --filename - --output-filename $shotDir"
         ]
         ++ workspaces;
 

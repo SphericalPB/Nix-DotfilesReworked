@@ -13,9 +13,9 @@
         #"uwsm app -- hdrop -b"
         "uwsm app -- wlsunset -l 13 -L 122"
         # Clipboard
-        "wl-paste --type text --watch cliphist store"
-        "wl-paste --type image --watch cliphist store"
-        "wl-clip-persist --clipboard regular"
+        "uwsm app -- wl-paste --type text --watch cliphist store"
+        "uwsm app -- wl-paste --type image --watch cliphist store"
+        "uwsm app -- wl-clip-persist --clipboard regular"
       ];
       exec = [
         "hyprctl setcursor 'oreo_catppuccin-macchiato_cursors' 32"

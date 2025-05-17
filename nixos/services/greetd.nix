@@ -8,11 +8,9 @@
 
   programs.regreet = {
     enable = true;
-    settings = ''
-      [background]
-      # Path to the background image
-      path = "/home/sphericalpb/Pictures/Wallpapers/aqua-japan.jpg"
-    '';
+    settings = {
+      background = "/home/sphericalpb/Pictures/Wallpapers/aqua-japan.jpg";
+    };
   };
 
   services.xserver = {

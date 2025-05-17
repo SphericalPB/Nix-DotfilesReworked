@@ -23,12 +23,12 @@
       #dim_strength = 0.15;
       #dim_special = 0.3;
       active_opacity = 1.0;
-      inactive_opacity = 0.92;
+      inactive_opacity = 0.95;
       blur = {
         enabled = true;
         new_optimizations = true;
-        size = 16;
-        passes = 2;
+        size = 8;
+        passes = 3;
         brightness = 1.0;
         contrast = 0.8;
         noise = 0.02;

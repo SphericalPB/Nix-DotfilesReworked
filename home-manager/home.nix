@@ -95,12 +95,12 @@
     inputs.zen-browser.packages."${system}".default # A Beautiful Arc-like Firefox Fork
     #vesktop # Discord... but BETTER!! Note: Screenshare's not working for some reason...
     legcord # Using the legcord client instead.
-    master.grayjay # Grayjay ( Follow Creators, Not Platforms )
+    #master.grayjay # Grayjay ( Follow Creators, Not Platforms )
     bottles # Bottles! An Easy-to-Use Wine-Prefix Manager
     protonup # GUI Proton Manager
     mangohud # System-Performance Stats for Games
     umu-launcher
-    suyu # A Community Recontiuation of YUZU(Nintendo Switch) Emulator
+    #suyu # A Community Recontiuation of YUZU(Nintendo Switch) Emulator (got taken down for potential DMCA :[ )
     prismlauncher # Popular Open-Source Minecraft Launcher
     gale # Thunderstore Mod-Launcher for numerous games
   ];
