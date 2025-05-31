@@ -67,10 +67,15 @@
   };
 
   #swapDevices = [];
-  swapDevices = [{device = "/swap/swapfile";}];
+  swapDevices = [
+    {
+      device = "/swap/swapfile";
+      priority = 10;
+    }
+  ];
 
   # Change how aggressive the kernel uses the swap space
-  boot.kernel.sysctl = {"vm.swappiness" = 10;};
+  #boot.kernel.sysctl = {"vm.swappiness" = 10;};
 
   zramSwap = {
     enable = true;
