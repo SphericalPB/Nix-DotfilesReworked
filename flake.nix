@@ -65,6 +65,8 @@
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
 
+    zen-nebula.url = "github:JustAdumbPrsn/Nebula-A-Minimal-Theme-for-Zen-Browser";
+
     # Spice up your Spotify Client with themes and plugins!
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";

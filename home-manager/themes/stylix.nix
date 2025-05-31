@@ -3,11 +3,12 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.stylix.homeManagerModules.stylix];
+  imports = [inputs.stylix.homeModules.stylix];
   stylix = {
     enable = true;
     # Global Colorscheme
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+    polarity = "dark";
     # Default wallpaper
     #image = ./wallpaper.png;
     # Setting Global Fonts
@@ -41,6 +42,7 @@
     targets = {
       hyprland.enable = false;
       vscode.enable = false;
+      spicetify.enable = false;
     };
   };
 }

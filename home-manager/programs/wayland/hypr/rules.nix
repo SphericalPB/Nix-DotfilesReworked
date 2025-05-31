@@ -13,6 +13,7 @@
         "tag +pip, initialtitle:^(Discord Popout)$"
         "tag +pip, title:^(Discord Popout)$"
         "tag +pip, title:^(Picture-in-Picture)$"
+        "tag +pip, title:^(Picture in picture)$"
 
         "float, tag:pip*"
         "pin, tag:pip*"

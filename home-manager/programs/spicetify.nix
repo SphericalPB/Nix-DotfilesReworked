@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   inputs,
   ...
 }: {
@@ -10,8 +9,8 @@
     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
   in {
     enable = true;
-    #theme = spicePkgs.themes.text;
-    #colorScheme = "catppuccinMacchiato";
+    theme = spicePkgs.themes.text;
+    colorScheme = "CatppuccinMacchiato";
 
     enabledCustomApps = with spicePkgs.apps; [
       newReleases
@@ -23,10 +22,10 @@
       adblock
       lastfm
       betterGenres
-      history
-      goToSong
-      listPlaylistsWithSong
-      savePlaylists
+      #history
+      #goToSong
+      #listPlaylistsWithSong
+      #savePlaylists
       playlistIcons
       volumePercentage
     ];

@@ -77,7 +77,7 @@ in {
           # Clipboard Menu
           "$mod, V, exec, cliphist list | uwsm app -- wofi -S dmenu | cliphist decode | wl-copy"
           # Colorpicker
-          "$alt, Print, exec, notify-send $(uwsm app -- hyprpicker --autocopy)"
+          "$mod, P, exec, notify-send $(uwsm app -- hyprpicker --autocopy)"
 
           # Screenshot
           # Fullscreen Screenshot
@@ -86,6 +86,10 @@ in {
           # Select Area Screenshot
           # stop animations while screenshotting; makes black border go away -fufexan
           "$ctrl, Print, exec, grimblast --notify --freeze copysave area $shotDir"
+
+          # Copy instead of saving
+          "$alt, Print, exec, grimblast --notify --cursor copy output"
+          "$alt $ctrl, Print, exec, grimblast --notify --freeze copy area"
 
           # Annotate Select Area
           "$mod, Print, exec, grimblast save area - | uwsm app -- satty --filename - --output-filename $shotDir"
