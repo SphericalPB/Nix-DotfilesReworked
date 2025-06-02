@@ -7,7 +7,7 @@
   });
 in {
   home.packages = with pkgs; [
-    vivaldi
+    master.vivaldi
   ];
 
   xdg.configFile."vivaldi/chrome".source = ./chrome;
