@@ -69,7 +69,7 @@ in {
           # Terminal
           "$mod, Return, exec, uwsm app -- kitty"
           # Browser
-          "$modShift, F, exec, uwsm app -- zen"
+          "$modShift, F, exec, uwsm app -- vivaldi"
           # File-Manager
           "$modShift, E, exec, uwsm app -- nemo"
           # Application Launcher

@@ -2,7 +2,7 @@
   imports = [
     ./greetd.nix
     ./plasma.nix
-    ./stylix.nix
+    #./stylix.nix
     #./keydaemon.nix
     ./mysql.nix
     ./php.nix

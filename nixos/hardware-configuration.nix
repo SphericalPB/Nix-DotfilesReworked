@@ -6,10 +6,12 @@
   lib,
   pkgs,
   modulesPath,
+  inputs,
   ...
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    inputs.minegrub-theme.nixosModules.default
   ];
 
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
@@ -28,6 +30,12 @@
       enable = true;
       efiSupport = true;
       device = "nodev";
+      minegrub-theme = {
+        enable = true;
+        splash = "I.. am Steve!";
+        background = "background_options/1.8  - [Classic Minecraft].png";
+        boot-options-count = 4;
+      };
     };
   };
 

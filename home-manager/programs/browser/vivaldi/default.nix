@@ -9,4 +9,6 @@ in {
   home.packages = with pkgs; [
     vivaldi
   ];
+
+  xdg.configFile."vivaldi/chrome".source = ./chrome;
 }

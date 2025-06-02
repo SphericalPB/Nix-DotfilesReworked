@@ -34,6 +34,9 @@
     # use nix-colors!
     nix-colors.url = "github:misterio77/nix-colors";
 
+    # Minecraft Theme for grubBootloader
+    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
+
     # Apple Fonts (SF Mono, my beloved <3)
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
 
