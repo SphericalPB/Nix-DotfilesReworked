@@ -61,6 +61,8 @@
       url = "github:KZDKM/Hyprspace";
       inputs.hyprland.follows = "hyprland";
     };
+    # A customizable and extensive shell
+    ags.url = "github:aylur/ags";
 
     # Wayland krunner-like Runner
     #anyrun = {

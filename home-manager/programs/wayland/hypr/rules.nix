@@ -8,6 +8,7 @@
         "opaque, class:^(com.gabm.satty)$"
         ## Prevent Browser from being transparent in certain webpages
         "opaque, title:(.*)(- YouTube)(.*)"
+        "opaque, title:^(Meet -)(.*)"
 
         ## Picture-in-Picture Fix
         "tag +pip, initialtitle:^(Discord Popout)$"

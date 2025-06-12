@@ -2,13 +2,11 @@
   imports = [
     ./hypr
     ./wlogout.nix
-    ./rofi
+    ./ags
     ./wofi
-    #./anyrun.nix
   ];
 
   home.packages = with pkgs; [
-    #kdePackages.xwaylandvideobridge # ScreenSharing for Electron apps like Discord on Wayland
     mako # Lightweight Wayland Notification Daemon
     swww # A Neat Wallpaper Manager for Wayland
     waypaper # GUI Wallpaper picker that supports swww, hyprpaper, etc.
