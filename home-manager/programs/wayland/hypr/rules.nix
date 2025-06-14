@@ -8,8 +8,8 @@
         "opaque, class:^(com.gabm.satty)$"
         # Pin Vivaldi Popups
         "float,  class:^(vivaldi-stable)$ title:^(Vivaldi Settings:)(.*)"
-        "float,  class:^(vivaldi-stable)$ title:(.*)(- Vivaldi)$"
-        "pin,    class:^(vivaldi-stable)$ title:(.*)(- Vivaldi)$"
+        "float,  class:^(vivaldi-stable)$ title:^(Bitwarden -)(.*)"
+        "pin,    class:^(vivaldi-stable)$ title:^(Bitwarden -)(.*)"
         ## Prevent Browser from being transparent in certain webpages
         "opaque, title:(.*)(- YouTube)(.*)"
         "opaque, title:^(Meet -)(.*)"
