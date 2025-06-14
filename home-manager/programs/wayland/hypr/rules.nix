@@ -4,8 +4,12 @@
       # Window Rules
       # [https://wiki.hyprland.org/Configuring/Window-Rules]
       windowrule = [
-        "float, class:^(com.gabm.satty)$"
+        "float,  class:^(com.gabm.satty)$"
         "opaque, class:^(com.gabm.satty)$"
+        # Pin Vivaldi Popups
+        "float,  class:^(vivaldi-stable)$ title:^(Vivaldi Settings:)(.*)"
+        "float,  class:^(vivaldi-stable)$ title:(.*)(- Vivaldi)$"
+        "pin,    class:^(vivaldi-stable)$ title:(.*)(- Vivaldi)$"
         ## Prevent Browser from being transparent in certain webpages
         "opaque, title:(.*)(- YouTube)(.*)"
         "opaque, title:^(Meet -)(.*)"
