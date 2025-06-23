@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.zen-nebula.homeModules.default];
+  #imports = [inputs.zen-nebula.homeModules.default];
   # no declarative customizations :[
   #zen-nebula = {
   #  enable = true;

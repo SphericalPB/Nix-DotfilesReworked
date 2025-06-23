@@ -12,7 +12,7 @@
   };
 
   security.pam.services.greetd.enableGnomeKeyring = true;
-  programs.ssh.startAgent = true;
+  #programs.ssh.startAgent = true;
 
   environment.systemPackages = [
     pkgs.mysql-workbench
