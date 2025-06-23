@@ -75,12 +75,12 @@
   };
 
   #swapDevices = [];
-  swapDevices = [
-    {
-      device = "/swap/swapfile";
-      priority = 1;
-    }
-  ];
+  #swapDevices = [
+  #  {
+  #    device = "/swap/swapfile";
+  #    priority = 1;
+  #  }
+  #];
 
   # Change how aggressive the kernel uses the swap space
   #boot.kernel.sysctl = {"vm.swappiness" = 10;};

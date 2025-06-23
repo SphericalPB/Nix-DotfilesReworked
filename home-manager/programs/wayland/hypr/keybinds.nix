@@ -88,8 +88,8 @@ in {
           "$ctrl, Print, exec, grimblast --notify --freeze copysave area $shotDir"
 
           # Copy instead of saving
-          "$alt, Print, exec, grimblast --notify --cursor copy output"
-          "$alt $ctrl, Print, exec, grimblast --notify --freeze copy area"
+          #"$alt, Print, exec, grimblast --notify --cursor copy output"
+          "$ctrl, C Print, exec, grimblast --notify --freeze copy area"
 
           # Annotate Select Area
           "$mod, Print, exec, grimblast save area - | uwsm app -- satty --filename - --output-filename $shotDir"

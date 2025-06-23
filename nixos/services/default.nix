@@ -1,7 +1,7 @@
 {
   imports = [
     ./greetd.nix
-    ./plasma.nix
+    #./plasma.nix
     ./thumbnailer.nix
     #./stylix.nix
     #./keydaemon.nix

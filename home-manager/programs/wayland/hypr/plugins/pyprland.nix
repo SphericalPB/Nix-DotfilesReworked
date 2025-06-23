@@ -25,7 +25,7 @@
 
     [scratchpads.fromTop]
     animation = "fromTop"
-    size = "88% 45%"
+    size = "88% 50%"
     margin = 10
     allow_special_workspaces = true
 
