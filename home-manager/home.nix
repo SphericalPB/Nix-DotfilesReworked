@@ -83,6 +83,7 @@
   };
   home.packages = with pkgs; [
     nemo-with-extensions # Preferred File-Manager
+    nemo-fileroller
     qimgv # Image Viewer
     vlc # Best Video Player
     obs-studio # A widely used Free n' Open-Source Program for Screen Recording/Streaming
