@@ -12,7 +12,7 @@
       gaps_in = 7;
       gaps_out = 21;
       border_size = 3;
-      "col.active_border" = "rgb(${config.colorScheme.palette.base0F}) rgb(${config.colorScheme.palette.base0E}) 45deg";
+      "col.active_border" = "rgb(${config.colorScheme.palette.base0A}) rgb(${config.colorScheme.palette.base0B}) 45deg";
       "col.inactive_border" = "rgb(${config.colorScheme.palette.base02}) rgb(${config.colorScheme.palette.base03}) 45deg";
       allow_tearing = false;
     };
