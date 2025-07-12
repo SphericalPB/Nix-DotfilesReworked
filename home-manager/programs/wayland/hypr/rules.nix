@@ -4,6 +4,7 @@
       # Window Rules
       # [https://wiki.hyprland.org/Configuring/Window-Rules]
       windowrule = [
+        "float, class:^(nemo)$ title:(.*)(Properties)$"
         "float,  class:^(com.gabm.satty)$"
         "opaque, class:^(com.gabm.satty)$"
         # Pin Vivaldi Popups
