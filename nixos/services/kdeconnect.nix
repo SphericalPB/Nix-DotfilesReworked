@@ -1,5 +1,8 @@
-{...}: {
-  programs.kdeconnect.enable = true;
+{pkgs, ...}: {
+  programs.kdeconnect = {
+    enable = true;
+    package = pkgs.kdePackages.kdeconnect-kde;
+  };
   networking.firewall = {
     enable = true;
     allowedTCPPortRanges = [
