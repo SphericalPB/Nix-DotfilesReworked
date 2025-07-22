@@ -1382,7 +1382,6 @@
     const tabId = tab?.id || tab?.tabId;
     tab = { ...await chrome.tabs.get(tabId), ...tab };
     tab.vivExtData = tab.vivExtData ? JSON.parse(tab.vivExtData) : {};
-    console.log(tab);
     if (info.paused !== undefined) {
       if (!tabs[tabId]) {
         createItem(tab, info);
@@ -1699,7 +1698,9 @@
   function updateIconAndTitle() {
     const webviewButtons = Array.from(document.querySelectorAll('.toolbar > .button-toolbar > .ToolbarButton-Button[name*="' + webPanelId + '"]'));
 
-    const panel = document.querySelector('.panel.webpanel:has(webview[tab_id*="' + webPanelId + '"])');
+    const webPanelStack = gnoh.getReactProps('.panel-group .webpanel-stack')?.children?.filter(webPanel => webPanel) ?? [];
+    const webPanelIndex = webPanelStack.findIndex(webPanel => webPanel.key === webPanelId) + 1;
+    const panel = document.querySelector('.panel-group .webpanel-stack .panel.webpanel:nth-child(' + webPanelIndex + ')');
 
     if (panel && webviewButtons.length) {
       createPanelCustom(panel, webviewButtons[0]);
@@ -1740,7 +1741,7 @@
           origin: 'user',
           resizable: false,
           title: name,
-          url: 'vivaldi://' + nameAttribute,
+          url: 'chrome://' + nameAttribute,
           width: -1,
           zoom: 1,
         };
