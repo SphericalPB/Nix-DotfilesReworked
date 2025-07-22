@@ -29,6 +29,7 @@
 
     # Ricing Made Easy!
     stylix.url = "github:danth/stylix";
+    catppuccin.url = "github:catppuccin/nix";
 
     # want to theme programs to the same colorscheme dynamically?
     # use nix-colors!

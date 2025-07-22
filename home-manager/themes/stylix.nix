@@ -41,8 +41,10 @@
     };
     targets = {
       hyprland.enable = false;
+      kde.enable = false;
       vscode.enable = false;
       spicetify.enable = false;
+      fish.enable = false;
     };
   };
 }

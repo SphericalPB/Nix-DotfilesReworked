@@ -1,11 +1,10 @@
 {pkgs, ...}: let
-  catppuccin-fish = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
-    repo = "fish";
-    rev = "0ce27b518e8ead555dec34dd8be3df5bd75cff8e";
-    hash = "sha256-Dc/zdxfzAUM5NX8PxzfljRbYvO9f9syuLO8yBr+R3qg=";
-  };
-
+  #catppuccin-fish = pkgs.fetchFromGitHub {
+  #  owner = "catppuccin";
+  #  repo = "fish";
+  #  rev = "0ce27b518e8ead555dec34dd8be3df5bd75cff8e";
+  #  hash = "sha256-Dc/zdxfzAUM5NX8PxzfljRbYvO9f9syuLO8yBr+R3qg=";
+  #};
   scripts = "~/.config/nixConf/home-manager/terminal/shell/scripts";
   #nixDir = "~/.config/nixConf";
   #nixHost = "Spherical-Nix";
@@ -14,7 +13,7 @@ in {
   imports = [./tide.nix];
 
   # Appling Fish Plugin Themes
-  xdg.configFile."fish/themes/Catppuccin Macchiato.theme".source = "${catppuccin-fish}/themes/Catppuccin Macchiato.theme";
+  #xdg.configFile."fish/themes/Catppuccin Macchiato.theme".source = "${catppuccin-fish}/themes/Catppuccin Macchiato.theme";
 
   programs.fish = {
     enable = true;
