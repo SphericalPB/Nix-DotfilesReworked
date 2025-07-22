@@ -89,7 +89,7 @@
     obs-studio # A widely used Free n' Open-Source Program for Screen Recording/Streaming
     krita # Open-Source Art Program
     libreoffice-fresh # FOSS Office Suite
-    jetbrains.idea-community-bin # Java IDE required for College
+    #jetbrains.idea-community-bin # Java IDE required for College
     obsidian # Markdown Text Editor
     #logseq  # A Neat Obsidian Alternative
     anki # Spaced Repetition Flashcard Program

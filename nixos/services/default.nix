@@ -8,6 +8,7 @@
     #./mysql.nix
     #./php.nix
     ./syncthing.nix
+    ./kdeconnect.nix
     ./flatpak.nix
     #./virt-manager.nix
   ];
