@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ./stylix.nix
-    ./catppuccin.nix
+    #./catppuccin.nix
     #./gtk.nix
     #./qt.nix
     #./colors

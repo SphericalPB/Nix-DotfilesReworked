@@ -10,7 +10,9 @@
   #nixHost = "Spherical-Nix";
   #nixUser = "sphericalpb";
 in {
-  imports = [./tide.nix];
+  imports = [
+    #./tide.nix
+  ];
 
   # Appling Fish Plugin Themes
   #xdg.configFile."fish/themes/Catppuccin Macchiato.theme".source = "${catppuccin-fish}/themes/Catppuccin Macchiato.theme";
