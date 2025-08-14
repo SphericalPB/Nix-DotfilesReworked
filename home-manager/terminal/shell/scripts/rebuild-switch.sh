@@ -28,14 +28,14 @@ updateFlag=""
 while getopts "hasu" opt;do
   case $opt in
   h)
-    printf "%s\n\n" "rebuild-switch [-h|-H|-s|-u]"
+    printf "%s\n\n" "rebuild-switch [-h|-a|-s|-u]"
     printf "%s\n" \
       "-h | show list of a available flags" \
-      "-H | rebuild home-manager config" "-s | skip git commit and push" \ 
+      "-a | rebuild home-manager config" "-s | skip git commit and push" \ 
       "-u | update flakes packages"
     exit
     ;;
-  H)
+  a)
     homeRebuild="1"
     ;;
   s) 
@@ -45,10 +45,10 @@ while getopts "hasu" opt;do
     updateFlag="-u"
     ;;
   ?)
-    printf "%s\n\n" "Invalid option: -$opt" "rebuild-switch [-h|-H|-s|-u]"
+    printf "%s\n\n" "Invalid option: -$opt" "rebuild-switch [-h|-a|-s|-u]"
     printf "%s\n" \ 
       "-h | show list of a available flags" \
-      "-H | rebuild home-manager config" \
+      "-a | rebuild home-manager config" \
       "-s | skip git commit and push"
     exit 1
     ;;

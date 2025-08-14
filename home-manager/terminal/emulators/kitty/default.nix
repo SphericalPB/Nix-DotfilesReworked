@@ -1,9 +1,6 @@
-{
-  inputs,
-  pkgs,
-  config,
-  ...
-}: {
+{...}: {
+  imports = [./theme.nix];
+
   #xdg.configFile."kitty/tab_bar.py".source = ./tab_bar.py;
 
   programs.kitty = {

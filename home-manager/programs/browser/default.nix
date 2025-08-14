@@ -1,6 +1,6 @@
 {...}: {
   imports = [
-    ./zen.nix
+    ./zen
     ./vivaldi
   ];
 }

@@ -12,8 +12,8 @@
       gaps_in = 7;
       gaps_out = 21;
       border_size = 3;
-      "col.active_border" = "rgb(${config.colorScheme.palette.base08}) rgb(${config.colorScheme.palette.base0E}) 135deg";
-      "col.inactive_border" = "rgb(${config.colorScheme.palette.base02}) rgb(${config.colorScheme.palette.base03}) 45deg";
+      "col.active_border" = "rgb(${config.lib.stylix.colors.base08}) rgb(${config.lib.stylix.colors.base0E}) 135deg";
+      "col.inactive_border" = "rgb(${config.lib.stylix.colors.base02}) rgb(${config.lib.stylix.colors.base03}) 45deg";
       allow_tearing = false;
     };
 
@@ -58,7 +58,7 @@
 
     misc = {
       disable_hyprland_logo = true;
-      background_color = "rgb(${config.colorScheme.palette.base00})";
+      background_color = "rgb(${config.lib.stylix.colors.base00})";
       disable_splash_rendering = true;
       vfr = true;
       enable_swallow = true;

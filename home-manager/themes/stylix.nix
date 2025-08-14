@@ -34,16 +34,16 @@
     cursor = {
       package = pkgs.oreo-cursors-plus.override {
         # Name = Colour LabelColour ShadowColour ShadowOpacity
-        cursorsConf = "catppuccin-macchiato = #b7bdf8";
+        cursorsConf = "catppuccin-macchiato-lavender = #b7bdf8";
       };
-      name = "oreo_catppuccin-macchiato_cursors";
+      name = "oreo_catppuccin-macchiato-lavender_cursors";
       size = 32;
     };
     targets = {
       hyprland.enable = false;
       kde.enable = false;
       zen-browser = {
-        enable = true;
+        enable = false;
         profileNames = ["Funky-Rodent"];
       };
       vscode.enable = false;
