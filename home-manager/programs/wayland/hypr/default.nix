@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   pkgs,
   ...
 }: {
@@ -11,6 +12,26 @@
     ./rules.nix
     ./plugins
   ];
+
+  xdg.configFile."uwsm/env".source = "${config.home.sessionVariablesPackage}/etc/profile.d/hm-session-vars.sh";
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    package = null; #inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = null; #inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+
+    systemd = {
+      # Disables SystemD integration, as it conflicts with UWSM
+      enable = false;
+      # Programs don’t work in systemd services, but do on the terminal.
+      variables = ["--all"];
+      # Fixes Hyprland not working after switching from other DE's/WM's
+      extraCommands = [
+        "systemctl --user stop graphical-session.target"
+        "systemctl --user start hyprland-session.target"
+      ];
+    };
+  };
 
   home.packages = with pkgs; [
     # Hyprland's own polkit agent
@@ -26,22 +47,4 @@
     # Colorpicker for Hyprland
     hyprpicker
   ];
-
-  wayland.windowManager.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-
-    systemd = {
-      # Disables SystemD integration, as it conflicts with UWSM
-      enable = false;
-      # Programs don’t work in systemd services, but do on the terminal.
-      variables = ["--all"];
-      # Fixes Hyprland not working after switching from other DE's/WM's
-      extraCommands = [
-        "systemctl --user stop graphical-session.target"
-        "systemctl --user start hyprland-session.target"
-      ];
-    };
-  };
 }

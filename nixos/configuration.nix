@@ -7,7 +7,9 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  pkgs-unstable = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in {
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
@@ -145,11 +147,11 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = [pkgs.mesa pkgs.amdvlk];
-      extraPackages32 = [pkgs.driversi686Linux.mesa pkgs.driversi686Linux.amdvlk];
+      #extraPackages = [pkgs.mesa pkgs.amdvlk];
+      #extraPackages32 = [pkgs.driversi686Linux.mesa pkgs.driversi686Linux.amdvlk];
       # For graphics version compatibility with Hyprland
-      #extraPackages = [pkgs-unstable.mesa.drivers pkgs.amdvlk];
-      #extraPackages32 = [pkgs-unstable.driversi686Linux.mesa.drivers pkgs.driversi686Linux.amdvlk];
+      extraPackages = [pkgs-unstable.mesa pkgs.amdvlk];
+      extraPackages32 = [pkgs-unstable.driversi686Linux.mesa pkgs.driversi686Linux.amdvlk];
     };
     # Setup Drawing Tablet with OpenTabletDriver
     opentabletdriver.enable = true;
@@ -162,7 +164,7 @@
       videoDrivers = ["amdgpu"];
       desktopManager = {
         xterm.enable = false;
-        xfce.enable = true;
+        #xfce.enable = true;
         #noDesktop = true;
         #enableXfwm = false;
       };

@@ -42,6 +42,10 @@
     targets = {
       hyprland.enable = false;
       kde.enable = false;
+      zen-browser = {
+        enable = true;
+        profileNames = ["Funky-Rodent"];
+      };
       vscode.enable = false;
       spicetify.enable = false;
       #fish.enable = false;

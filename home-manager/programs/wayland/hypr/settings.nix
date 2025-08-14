@@ -12,7 +12,7 @@
       gaps_in = 7;
       gaps_out = 21;
       border_size = 3;
-      "col.active_border" = "rgb(${config.colorScheme.palette.base0D}) rgb(${config.colorScheme.palette.base0B}) 45deg";
+      "col.active_border" = "rgb(${config.colorScheme.palette.base08}) rgb(${config.colorScheme.palette.base0E}) 135deg";
       "col.inactive_border" = "rgb(${config.colorScheme.palette.base02}) rgb(${config.colorScheme.palette.base03}) 45deg";
       allow_tearing = false;
     };
@@ -64,5 +64,7 @@
       enable_swallow = true;
       swallow_regex = "kitty";
     };
+
+    debug.disable_logs = false;
   };
 }

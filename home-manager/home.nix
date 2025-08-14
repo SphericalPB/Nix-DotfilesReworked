@@ -85,6 +85,7 @@
     nemo-with-extensions # Preferred File-Manager
     file-roller
     qimgv # Image Viewer
+    pavucontrol # Audio-Mixer
     vlc # Best Video Player
     obs-studio # A widely used Free n' Open-Source Program for Screen Recording/Streaming
     krita # Open-Source Art Program

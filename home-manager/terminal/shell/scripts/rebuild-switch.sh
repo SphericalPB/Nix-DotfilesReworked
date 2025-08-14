@@ -18,25 +18,24 @@ function rebuild() {
   alejandra .
   git add -N .
   nh os switch -H "$nixHost" "$@"
-  git diff | delta --features side-by-side # show the changes between the current and the previous config version
 }
 
 homeRebuild=""
 skipCommit=""
 updateFlag=""
 
-# Custom flags. 
+# Custom flags using case break 
 while getopts "hasu" opt;do
   case $opt in
   h)
-    printf "%s\n\n" "rebuild-switch [-h|-a|-s|-u]"
+    printf "%s\n\n" "rebuild-switch [-h|-H|-s|-u]"
     printf "%s\n" \
       "-h | show list of a available flags" \
-      "-a | rebuild home-manager config" "-s | skip git commit and push" \ 
+      "-H | rebuild home-manager config" "-s | skip git commit and push" \ 
       "-u | update flakes packages"
     exit
     ;;
-  a)
+  H)
     homeRebuild="1"
     ;;
   s) 
@@ -46,10 +45,10 @@ while getopts "hasu" opt;do
     updateFlag="-u"
     ;;
   ?)
-    printf "%s\n\n" "Invalid option: -$opt" "rebuild-switch [-h|-a|-s|-u]"
+    printf "%s\n\n" "Invalid option: -$opt" "rebuild-switch [-h|-H|-s|-u]"
     printf "%s\n" \ 
       "-h | show list of a available flags" \
-      "-a | rebuild home-manager config" \
+      "-H | rebuild home-manager config" \
       "-s | skip git commit and push"
     exit 1
     ;;
@@ -64,7 +63,6 @@ if [[ -n "$homeRebuild" ]]; then
     alejandra .
     git add -N .
     nh home switch -c "$nixUser@$nixHost" "$@"
-    git diff | delta --features side-by-side # show the changes between the current and the previous config version
   }
 fi
 
@@ -74,6 +72,7 @@ rebuild $updateFlag
 # If skipCommit is an empty string, then do commit and push procedure
 # Else, skip it entirely.
 if [[ -z "$skipCommit" ]]; then
+  git diff | delta --features side-by-side # show the changes between the current and the previous config version
   echo =============================
   echo 'Please enter a commit name? (keep empty for timestamp)' 
   read -p '> '  commitName
@@ -92,6 +91,6 @@ else
   echo =============================
   echo "Skipping commit and push procedures..."
 fi
-# Moves the user back to the previous directory, before the script was ran.
+# Moves the user back to the previous directory, before the script was executed.
 popd
 
