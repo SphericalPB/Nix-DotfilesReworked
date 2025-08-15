@@ -5,16 +5,33 @@
   ...
 }: {
   imports = [
-    inputs.zen-browser.homeModules.twilight
+    inputs.zen-browser.homeModules.beta
     ./theme.nix
+    ./search.nix
+    ./extensions.nix
+    ./containers.nix
   ];
 
   programs.zen-browser = {
     enable = true;
     nativeMessagingHosts = [pkgs.firefoxpwa];
-    profiles.Funky-Rodent = {
-      #name = "Funky-Rodent";
-      #path = "${config.home.homeDirectory}/.zen/Funky-Rodent/";
+    policies = {
+      AutofillAddressEnabled = false;
+      AutofillCreditCardEnabled = false;
+      DisableAppUpdate = true;
+      DisableFeedbackCommands = true;
+      DisableFirefoxStudies = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      DontCheckDefaultBrowser = true;
+      NoDefaultBookmarks = true;
+      OfferToSaveLogins = false;
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+      };
     };
   };
 }

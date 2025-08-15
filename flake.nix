@@ -1,5 +1,5 @@
 {
-  description = "Sphere's nixConfig(Rework)";
+  description = "Sphere's personal NixOS configuration";
 
   inputs = {
     ## Nixpkgs
@@ -27,16 +27,15 @@
     # Install Flatpak packages Declaratively!
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
+    # Minecraft Theme for grubBootloader
+    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
+
     # Ricing Made Easy!
     stylix.url = "github:danth/stylix";
-    catppuccin.url = "github:catppuccin/nix";
 
     # want to theme programs to the same colorscheme dynamically?
     # use nix-colors!
-    nix-colors.url = "github:misterio77/nix-colors";
-
-    # Minecraft Theme for grubBootloader
-    minegrub-theme.url = "github:Lxtharia/minegrub-theme";
+    #nix-colors.url = "github:misterio77/nix-colors";
 
     # Apple Fonts (SF Mono, my beloved <3)
     apple-fonts.url = "github:Lyndeno/apple-fonts.nix";
@@ -71,8 +70,6 @@
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
 
-    #zen-nebula.url = "github:JustAdumbPrsn/Nebula-A-Minimal-Theme-for-Zen-Browser";
-
     # Spice up your Spotify Client with themes and plugins!
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -87,6 +84,11 @@
 
     # Zen Browser, A Beautiful Firefox Fork with ARC-like features
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # An Anime Game Launcher (Mihoyo + WuWa)
     aagl = {

@@ -6,20 +6,20 @@
     background = "#${config.lib.stylix.colors.base01}";
 
     # Cursor colors
-    cursor = "#${config.colorscheme.palette.base05}";
-    cursor_text_color = "#${config.colorscheme.palette.base00}";
+    cursor = "#${config.lib.stylix.colors.base05}";
+    cursor_text_color = "#${config.lib.stylix.colors.base00}";
 
     # URL underline color when hovering with mouse
-    url_color = "#${config.colorscheme.palette.base0E}";
+    url_color = "#${config.lib.stylix.colors.base0E}";
 
     # Kitty window border colors
-    active_border_color = "#${config.colorscheme.palette.base0C}";
-    inactive_border_color = "#${config.colorscheme.palette.base02}";
-    bell_border_color = "#${config.colorscheme.palette.base0B}";
+    active_border_color = "#${config.lib.stylix.colors.base0C}";
+    inactive_border_color = "#${config.lib.stylix.colors.base02}";
+    bell_border_color = "#${config.lib.stylix.colors.base0B}";
 
     # OS Window titlebar colors
-    wayland_titlebar_color = "#${config.colorscheme.palette.base00}";
-    macos_titlebar_color = "#${config.colorscheme.palette.base00}";
+    wayland_titlebar_color = "#${config.lib.stylix.colors.base00}";
+    macos_titlebar_color = "#${config.lib.stylix.colors.base00}";
 
     # Tab bar colors
     active_tab_foreground = "#${config.lib.stylix.colors.base00}";
@@ -29,12 +29,12 @@
     tab_bar_background = "#${config.lib.stylix.colors.base02}";
 
     # Colors for marks (marked text in the terminal)
-    mark1_foreground = "#${config.colorscheme.palette.base00}";
-    mark1_background = "#${config.colorscheme.palette.base07}";
-    mark2_foreground = "#${config.colorscheme.palette.base00}";
-    mark2_background = "#${config.colorscheme.palette.base0E}";
-    mark3_foreground = "#${config.colorscheme.palette.base00}";
-    mark3_background = "#${config.colorscheme.palette.base0D}";
+    mark1_foreground = "#${config.lib.stylix.colors.base00}";
+    mark1_background = "#${config.lib.stylix.colors.base07}";
+    mark2_foreground = "#${config.lib.stylix.colors.base00}";
+    mark2_background = "#${config.lib.stylix.colors.base0E}";
+    mark3_foreground = "#${config.lib.stylix.colors.base00}";
+    mark3_background = "#${config.lib.stylix.colors.base0D}";
 
     # Black
     color0 = "#${config.lib.stylix.colors.base03}";

@@ -33,7 +33,7 @@ in {
       #home-switch = "pushd ${nixDir}; alejandra .; git add .; nh home switch -c ${nixUser}@${nixHost}; popd";
       #nix-commit = ''pushd ${nixDir}; read Name -p 'echo "Commit Name?"; echo "> "'; git commit -am $NAME; git push; popd'';
       rebuild-switch = "${scripts}/rebuild-switch.sh";
-      home-switch = "${scripts}/rebuild-switch.sh -H";
+      home-switch = "${scripts}/rebuild-switch.sh -a";
       ls = "lsd";
       cat = "bat";
       rm = "trash";

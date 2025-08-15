@@ -42,9 +42,10 @@
     targets = {
       hyprland.enable = false;
       kde.enable = false;
+      kitty.enable = false;
       zen-browser = {
         enable = false;
-        profileNames = ["Funky-Rodent"];
+        #profileNames = ["Funky-Rodent"];
       };
       vscode.enable = false;
       spicetify.enable = false;

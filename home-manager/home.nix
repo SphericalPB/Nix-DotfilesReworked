@@ -11,9 +11,6 @@
     # If you want to use modules your own flake exports (from modules/home-manager):
     # outputs.homeManagerModules.example
 
-    # Or modules exported from other flakes (such as nix-colors):
-    inputs.nix-colors.homeManagerModules.default
-
     # You can also split up your configuration and import pieces of it here:
     ./themes
     ./services
@@ -44,6 +41,7 @@
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      #allowUnfreePredicate = _: true;
     };
   };
 
@@ -68,9 +66,6 @@
   #    "image/jpeg" = "qimgv.desktop";
   #  };
   #};
-
-  # Set Base16 Colorscheme
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
 
   # List of Installed Programs [Per-User]
   programs = {

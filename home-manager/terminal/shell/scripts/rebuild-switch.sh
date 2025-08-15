@@ -24,7 +24,7 @@ homeRebuild=""
 skipCommit=""
 updateFlag=""
 
-# Custom flags using case break 
+# Custom flags. 
 while getopts "hasu" opt;do
   case $opt in
   h)
@@ -91,6 +91,6 @@ else
   echo =============================
   echo "Skipping commit and push procedures..."
 fi
-# Moves the user back to the previous directory, before the script was executed.
+# Moves the user back to the previous directory, before the script was ran.
 popd
 

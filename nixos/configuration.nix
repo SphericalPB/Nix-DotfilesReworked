@@ -61,6 +61,7 @@ in {
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      allowUnfreePredicate = _: true;
     };
   };
 
