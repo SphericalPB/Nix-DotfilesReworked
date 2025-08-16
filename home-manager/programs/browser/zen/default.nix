@@ -5,11 +5,11 @@
   ...
 }: {
   imports = [
-    inputs.zen-browser.homeModules.beta
+    inputs.zen-browser.homeModules.twilight-official
     ./theme.nix
     ./search.nix
-    ./extensions.nix
     ./containers.nix
+    ./extensions
   ];
 
   programs.zen-browser = {
