@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    inputs.zen-browser.homeModules.twilight-official
+    inputs.zen-browser.homeModules.beta
     ./theme.nix
     ./search.nix
     ./containers.nix
@@ -26,12 +26,15 @@
       DontCheckDefaultBrowser = true;
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
-      EnableTrackingProtection = {
-        Value = true;
-        Locked = true;
-        Cryptomining = true;
-        Fingerprinting = true;
-      };
+      #EnableTrackingProtection = {
+      #  Value = true;
+      #  Locked = true;
+      #  Cryptomining = true;
+      #  Fingerprinting = true;
+      #};
+    };
+    profiles.Funky-Rodent.settings = {
+      zen.welcome-screen.seen = true;
     };
   };
 }

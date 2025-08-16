@@ -4,15 +4,17 @@
   pkgs,
   ...
 }: {
+  # Nix keeps complaining about unfree packages despite already having allowUnfree set to true;
+  # Dirty solution: Merging the mit license with the unfree package/extension (thanks iynaix from Vimjoyer Discord!)
   programs.zen-browser.profiles.Funky-Rodent.extensions = {
     packages = with inputs.firefox-addons.packages."${pkgs.system}"; [
       (improved-tube.overrideAttrs (o: {
         meta = o.meta // {license = lib.licenses.mit;};
       }))
     ];
-    settings = {
-      "{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}".settings = {
-        force = true;
+    settings."{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}" = {
+      force = true;
+      settings = {
         # Appearance
         comments_sidebar = true;
         sidebar_left = true;
