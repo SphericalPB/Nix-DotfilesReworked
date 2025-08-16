@@ -799,11 +799,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1755340192,
-        "narHash": "sha256-TJx0DxizMeHRpo6L5NabyBWVnmhUTWw2hBdDraR1CnY=",
+        "lastModified": 1755342323,
+        "narHash": "sha256-qOjpYB+UPehBpW+4y0gUQG1EEfYuG59d18yebj+xSvs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "43d17aeb93c79429aa024f5252a51b642ed32382",
+        "rev": "f3764e5da871f924e384c024c526b8768b39dbfd",
         "type": "github"
       },
       "original": {
@@ -952,22 +952,6 @@
       },
       "original": {
         "owner": "NixOS",
-        "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_9": {
-      "locked": {
-        "lastModified": 1752480373,
-        "narHash": "sha256-JHQbm+OcGp32wAsXTE/FLYGNpb+4GLi5oTvCxwSoBOA=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "62e0f05ede1da0d54515d4ea8ce9c733f12d9f08",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
@@ -1397,7 +1381,9 @@
     "zen-browser": {
       "inputs": {
         "home-manager": "home-manager_2",
-        "nixpkgs": "nixpkgs_9"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1755321573,

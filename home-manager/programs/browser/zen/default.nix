@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    inputs.zen-browser.homeModules.beta
+    inputs.zen-browser.homeModules.twilight
     ./theme.nix
     ./search.nix
     ./containers.nix
@@ -14,6 +14,19 @@
 
   programs.zen-browser = {
     enable = true;
+    profiles = {
+      Funky-Rodent = {
+        isDefault = true;
+        id = 0;
+        settings = {
+          zen.welcome-screen.seen = true;
+        };
+      };
+      #Disco-Cat = {
+      #  id = 1;
+      #  path = "Disco-Cat";
+      #};
+    };
     nativeMessagingHosts = [pkgs.firefoxpwa];
     policies = {
       AutofillAddressEnabled = false;
@@ -26,15 +39,12 @@
       DontCheckDefaultBrowser = true;
       NoDefaultBookmarks = true;
       OfferToSaveLogins = false;
-      #EnableTrackingProtection = {
-      #  Value = true;
-      #  Locked = true;
-      #  Cryptomining = true;
-      #  Fingerprinting = true;
-      #};
-    };
-    profiles.Funky-Rodent.settings = {
-      zen.welcome-screen.seen = true;
+      EnableTrackingProtection = {
+        Value = true;
+        Locked = true;
+        Cryptomining = true;
+        Fingerprinting = true;
+      };
     };
   };
 }

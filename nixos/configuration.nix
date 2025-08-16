@@ -151,8 +151,8 @@ in {
       #extraPackages = [pkgs.mesa pkgs.amdvlk];
       #extraPackages32 = [pkgs.driversi686Linux.mesa pkgs.driversi686Linux.amdvlk];
       # For graphics version compatibility with Hyprland
-      extraPackages = [pkgs-unstable.mesa pkgs.amdvlk];
-      extraPackages32 = [pkgs-unstable.driversi686Linux.mesa pkgs.driversi686Linux.amdvlk];
+      extraPackages = [pkgs.mesa pkgs.amdvlk];
+      extraPackages32 = [pkgs.driversi686Linux.mesa pkgs.driversi686Linux.amdvlk];
     };
     # Setup Drawing Tablet with OpenTabletDriver
     opentabletdriver.enable = true;
