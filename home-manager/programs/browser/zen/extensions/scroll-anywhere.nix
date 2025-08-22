@@ -14,6 +14,7 @@
     ];
     settings."juraj.masiar@gmail.com_ScrollAnywhere" = {
       force = true;
+      permissions = ["alarms" "storage" "activeTab" "<all_urls>" "browserSettings"];
       settings = {
         scroll_button_middle = false;
         scroll_button_right = true;

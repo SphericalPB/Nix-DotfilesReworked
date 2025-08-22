@@ -67,9 +67,9 @@ in {
           ## Utilities
           "$modShift, Q, exec, uwsm app -- wlogout"
           # Terminal
-          "$mod, Return, exec, uwsm app -- kitty"
+          "$mod, Return, exec, uwsm app -- $TERMINAL"
           # Browser
-          "$modShift, F, exec, uwsm app -- vivaldi"
+          "$modShift, F, exec, uwsm app -- $BROWSER"
           # File-Manager
           "$modShift, E, exec, uwsm app -- nemo"
           # Application Launcher

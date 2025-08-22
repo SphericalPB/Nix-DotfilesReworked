@@ -1,9 +1,10 @@
-{...}: {
+{pkgs, ...}: {
+  environment.systemPackages = [pkgs.php];
   networking.firewall.allowedTCPPorts = [80 443];
 
   services.httpd.enable = true;
   services.httpd.adminAddr = "webmaster@example.org";
-  services.httpd.enablePHP = true; # oof... not a great idea in my opinion
+  services.httpd.enablePHP = true;
 
   services.httpd.virtualHosts."example.org" = {
     documentRoot = "/var/www/example.org";

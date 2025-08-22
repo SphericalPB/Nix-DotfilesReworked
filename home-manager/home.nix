@@ -51,7 +51,7 @@
     sessionVariables = {
       EDITOR = "lvim";
       TERMINAL = "kitty";
-      BROWSER = "vivaldi";
+      BROWSER = "zen";
     };
   };
   # Hint Programs to Follow 'xdg-user-dirs' Configured Directories

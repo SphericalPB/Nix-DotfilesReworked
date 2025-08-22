@@ -2,6 +2,7 @@
   programs.zen-browser.profiles.Funky-Rodent = {
     search = {
       force = true; # Force replace existing search configuration
+      default = "brave-search";
       engines = {
         # Brave Search
         brave-search = {
@@ -18,6 +19,21 @@
             }
           ];
           definedAliases = ["b"];
+        };
+        youtube = {
+          name = "YouTube";
+          urls = [
+            {
+              template = "https://www.youtube.com/results";
+              params = [
+                {
+                  name = "search_query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+          definedAliases = ["y"];
         };
         # Nix Search
         nix-packages = {

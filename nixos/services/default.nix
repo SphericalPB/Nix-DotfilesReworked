@@ -6,7 +6,7 @@
     #./stylix.nix
     #./keydaemon.nix
     #./mysql.nix
-    #./php.nix
+    ./php.nix
     ./syncthing.nix
     #./kdeconnect.nix
     ./flatpak.nix

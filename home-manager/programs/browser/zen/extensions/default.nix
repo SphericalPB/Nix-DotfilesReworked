@@ -12,6 +12,9 @@
     ./improved-tube.nix
   ];
   programs.zen-browser.profiles.Funky-Rodent = {
+    settings = {
+      "extensions.autoDisableScopes" = 0;
+    };
     extensions = {
       force = true; # Force replace existing extensions
 
@@ -23,6 +26,7 @@
       packages = with inputs.firefox-addons.packages."${pkgs.system}"; [
         bitwarden
         floccus
+        auto-tab-discard
         web-scrobbler
         stylus
         (tampermonkey.overrideAttrs (o: {
@@ -37,6 +41,7 @@
         clearurls
         # Youtube
         youtube-shorts-block
+        youtube-nonstop
         return-youtube-dislikes
         sponsorblock
         dearrow
