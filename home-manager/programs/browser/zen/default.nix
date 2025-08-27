@@ -20,6 +20,7 @@
         id = 0;
         settings = {
           zen.welcome-screen.seen = true;
+          zen.view.experimental-no-window-controls = true;
         };
       };
       #Disco-Cat = {

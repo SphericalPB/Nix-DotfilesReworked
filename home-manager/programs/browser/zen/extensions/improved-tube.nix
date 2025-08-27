@@ -24,6 +24,7 @@
 
         # General
         font = "Comfortaa";
+        change_thumbnails_per_row = 6;
         disable_thumbnail_playback = true;
         hide_thumbnail_overlay = true;
         hide_ai_summary = true;

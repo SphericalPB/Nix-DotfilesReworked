@@ -134,6 +134,19 @@
         #zen-appcontent-navbar-container {
           background-color: #${config.lib.stylix.colors.base01} !important;
         }
+
+        /* Hide Titlebar Hover */
+        #zen-appcontent-navbar-container {
+          max-height: var(--zen-element-separation) !important;
+        }
+
+        :root[inDOMFullscreen="true"] #zen-appcontent-navbar-container {
+          display: none !important;
+        }
+
+        #customization-panelWrapper {
+          --panel-arrow-offset: 0px !important;
+        }
       '';
 
       userContent = ''

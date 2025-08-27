@@ -99,6 +99,7 @@
     mangohud # System-Performance Stats for Games
     umu-launcher
     #suyu # A Community Recontiuation of YUZU(Nintendo Switch) Emulator (got taken down for potential DMCA :[ )
+    heroic # Epic Games Launcher for Linux
     prismlauncher # Popular Open-Source Minecraft Launcher
     gale # Thunderstore Mod-Launcher for numerous games
   ];

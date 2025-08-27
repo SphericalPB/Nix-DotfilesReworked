@@ -45,8 +45,12 @@
           www.youtube.com * 3p-script noop
           www.reddit.com * 3p-frame noop
           www.reddit.com * 3p-script noop
-          www.pinterest.com * 3p-frame noop
-          www.pinterest.com * 3p-script noop
+          ph.pinterest.com * 3p-frame noop
+          ph.pinterest.com * 3p-script noop
+          github.com * 3p-frame noop
+          github.com * 3p-script noop
+          chatgpt.com * 3p-frame noop
+          chatgpt.com * 3p-script noop
           home-manager-options.extranix.com * 3p-frame noop
           home-manager-options.extranix.com * 3p-script noop
         '';
