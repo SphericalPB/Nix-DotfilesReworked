@@ -8,20 +8,10 @@
       vimium-c
     ];
     settings."vimium-c@gdh1995.cn" = {
-      force = true;
       permissions = [
         "bookmarks"
-        "clipboardRead"
-        "clipboardWrite"
-        "history"
-        "notifications"
-        "search"
-        "sessions"
-        "storage"
-        "tabs"
-        "webNavigation"
-        "<all_urls>"
       ];
+      force = true;
       settings = {
         # Default Search Engine
         #searchUrl = "https://search.brave.com/search?q=$s Brave";

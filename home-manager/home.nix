@@ -88,7 +88,7 @@
     #jetbrains.idea-community-bin # Java IDE required for College
     obsidian # Markdown Text Editor
     #logseq  # A Neat Obsidian Alternative
-    anki # Spaced Repetition Flashcard Program
+    stable.anki # Spaced Repetition Flashcard Program
     #inputs.zen-browser.packages."${system}".default # A Beautiful Arc-like Firefox Fork
     #vivaldi # Another feature-rich browser with a focus on vertical tabs
     #vesktop # Discord... but BETTER!! Note: Screenshare's not working for some reason...

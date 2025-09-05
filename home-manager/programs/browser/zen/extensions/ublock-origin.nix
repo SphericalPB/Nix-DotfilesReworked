@@ -9,8 +9,33 @@
     ];
     settings."uBlock0@raymondhill.net" = {
       force = true;
+      permissions = [
+        "alarms"
+        "dns"
+        "menus"
+        "privacy"
+        "storage"
+        "tabs"
+        "unlimitedStorage"
+        "webNavigation"
+        "webRequest"
+        "webRequestBlocking"
+        "<all_urls>"
+        "http://*/*"
+        "https://*/*"
+        "file://*/*"
+        "https://easylist.to/*"
+        "https://*.fanboy.co.nz/*"
+        "https://filterlists.com/*"
+        "https://forums.lanik.us/*"
+        "https://github.com/*"
+        "https://*.github.io/*"
+        "https://github.com/uBlockOrigin/*"
+        "https://ublockorigin.github.io/*"
+        "https://*.reddit.com/r/uBlockOrigin/*"
+      ];
       settings = {
-        advancedUserEnabled = true; #Currently does not work..ish
+        advancedUserEnabled = true; #Kinda works...
         selectedFilterLists = [
           "user-filters"
           "ublock-filters"
@@ -39,8 +64,12 @@
           behind-the-scene * image noop
           behind-the-scene * inline-script noop
 
+          home-manager-options.extranix.com * 3p-frame noop
+          home-manager-options.extranix.com * 3p-script noop
           accounts.google.com * 3p-frame noop
           accounts.google.com * 3p-script noop
+          drive.google.com * 3p-frame noop
+          drive.google.com * 3p-script noop
           www.youtube.com * 3p-frame noop
           www.youtube.com * 3p-script noop
           www.reddit.com * 3p-frame noop
@@ -51,8 +80,8 @@
           github.com * 3p-script noop
           chatgpt.com * 3p-frame noop
           chatgpt.com * 3p-script noop
-          home-manager-options.extranix.com * 3p-frame noop
-          home-manager-options.extranix.com * 3p-script noop
+          wplace.live * 3p-frame noop
+          wplace.live * 3p-script noop
         '';
       };
     };

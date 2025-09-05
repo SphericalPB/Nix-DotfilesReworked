@@ -9,7 +9,9 @@
     ./ublock-origin.nix
     ./vimium-c.nix
     ./scroll-anywhere.nix
-    ./improved-tube.nix
+    ./web-scrobbler.nix
+    ./improved-tube.nix # Currently only works if you interact with it in the extensions menu
+    ./youtube-shorts-block.nix
   ];
   programs.zen-browser.profiles.Funky-Rodent = {
     settings = {
@@ -27,7 +29,6 @@
         bitwarden
         floccus
         auto-tab-discard
-        web-scrobbler
         stylus
         (tampermonkey.overrideAttrs (o: {
           meta = o.meta // {license = lib.licenses.mit;};
@@ -40,7 +41,6 @@
         istilldontcareaboutcookies
         clearurls
         # Youtube
-        youtube-shorts-block
         youtube-nonstop
         return-youtube-dislikes
         sponsorblock

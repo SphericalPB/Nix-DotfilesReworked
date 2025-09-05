@@ -14,6 +14,13 @@
     ];
     settings."{3c6bf0cc-3ae2-42fb-9993-0d33104fdcaf}" = {
       force = true;
+      permissions = [
+        "contextMenus"
+        "storage"
+        "https://www.youtube.com/*"
+        "https://m.youtube.com/*"
+        "browsingData"
+      ];
       settings = {
         # Appearance
         comments_sidebar = true;

@@ -7,13 +7,20 @@
         "float, class:^(nemo)$ title:(.*)(Properties)$"
         "float,  class:^(com.gabm.satty)$"
         "opaque, class:^(com.gabm.satty)$"
-        # Pin Vivaldi Popups
+        # Vivaldi Popups
         "float,  class:^(vivaldi-stable)$ title:^(Vivaldi Settings:)(.*)"
         "float,  class:^(vivaldi-stable)$ title:^(Bitwarden -)(.*)"
         "pin,    class:^(vivaldi-stable)$ title:^(Bitwarden -)(.*)"
+
         ## Prevent Browser from being transparent in certain webpages
         "opaque, title:(.*)(- YouTube)(.*)"
         "opaque, title:^(Meet -)(.*)"
+
+        #
+        "float, initialtitle:^(Zen Browser)$ title:^(Extension: )(.*)"
+
+        "float, tag:pin*"
+        "pin, tag:pin*"
 
         ## Picture-in-Picture Fix
         "tag +pip, initialtitle:^(Discord Popout)$"

@@ -62,6 +62,12 @@
             params.cleanoutDays = "30";
           };
         };
+
+        "Mystia-Izakaya-Sync" = {
+          id = "bubwx-6su3e";
+          path = "/home/sphericalpb/Games/Winlator-Sync/Mystia Izakaya/Save/";
+          devices = ["Spherical-Tablet"];
+        };
       };
     };
   };

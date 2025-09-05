@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./mako.nix
     ./hypr
     ./wlogout.nix
     ./ags
@@ -7,7 +8,7 @@
   ];
 
   home.packages = with pkgs; [
-    mako # Lightweight Wayland Notification Daemon
+    #mako # Lightweight Wayland Notification Daemon
     swww # A Neat Wallpaper Manager for Wayland
     waypaper # GUI Wallpaper picker that supports swww, hyprpaper, etc.
     wl-clipboard # Clipboard Manager for Wayland

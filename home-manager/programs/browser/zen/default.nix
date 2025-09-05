@@ -5,7 +5,8 @@
   ...
 }: {
   imports = [
-    inputs.zen-browser.homeModules.twilight
+    inputs.zen-browser.homeModules.beta
+    ./advanced-settings.nix
     ./theme.nix
     ./search.nix
     ./containers.nix
