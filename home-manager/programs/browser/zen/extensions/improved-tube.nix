@@ -19,7 +19,6 @@
         "storage"
         "https://www.youtube.com/*"
         "https://m.youtube.com/*"
-        "browsingData"
       ];
       settings = {
         # Appearance

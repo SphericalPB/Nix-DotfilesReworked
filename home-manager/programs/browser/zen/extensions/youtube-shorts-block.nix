@@ -13,6 +13,7 @@
         "storage"
         "*://*.youtube.com/*"
         "*://m.youtube.com/*"
+        "activeTab"
         "browsingData"
       ];
       settings = {

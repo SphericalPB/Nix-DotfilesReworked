@@ -72,6 +72,8 @@ in {
           "$modShift, F, exec, uwsm app -- $BROWSER"
           # File-Manager
           "$modShift, E, exec, uwsm app -- nemo"
+          # Notes
+          "$modShift, N, exec, uwsm app -- obsidian"
           # Application Launcher
           "$alt, Space, exec, uwsm app -- wofi"
           # Clipboard Menu
