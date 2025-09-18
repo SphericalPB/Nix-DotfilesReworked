@@ -100,13 +100,13 @@ if rebuild "$@"; then
           echo "Invalid input, please enter y or n."
           ;;
       esac
-      separator
     fi
   else
     separator
     echo "Skipping commit and push procedures..."
   fi 
 else
+  separator
   echo "An error has occured during rebuild!"
 fi
 popd

@@ -22,6 +22,9 @@ in {
     # Nix-Index-Database
     inputs.nix-index-database.nixosModules.nix-index
 
+    # Minegrub GRUB theme
+    inputs.minegrub-theme.nixosModules.default
+
     # An-Anime-Game-Launcher (Mihoyo & WuWa)
     inputs.aagl.nixosModules.default
 
@@ -103,6 +106,46 @@ in {
     nixPath = lib.mapAttrsToList (n: _: "${n}=flake:${n}") flakeInputs;
   };
 
+  boot = {
+    initrd.kernelModules = ["amdgpu"];
+    kernelModules = ["kvm-amd"];
+    # Custom kernel, because why not :]
+    kernelPackages = pkgs.linuxPackages_zen;
+    # Install/Use GRUB as the default bootloader
+    loader = {
+      efi = {
+        efiSysMountPoint = "/boot";
+        canTouchEfiVariables = true;
+      };
+      grub = {
+        enable = true;
+        efiSupport = true;
+        device = "nodev";
+        minegrub-theme = {
+          enable = true;
+          splash = "Flint n' Steel!";
+          background = "background_options/1.8  - [Classic Minecraft].png";
+          boot-options-count = 4;
+        };
+      };
+    };
+  };
+
+  # Enable swap devices
+  swapDevices = [
+    {
+      device = "/swap/swapfile";
+      priority = 10;
+    }
+  ];
+
+  zramSwap = {
+    enable = true;
+    algorithm = "zstd";
+    memoryPercent = 30;
+    priority = 100;
+  };
+
   # Enable Networking
   networking = {
     hostName = "Spherical-Nix";
@@ -159,6 +202,8 @@ in {
   };
 
   services = {
+    # Enable TRIM for SSD's
+    fstrim.enable = true;
     # Xorg/X11
     xserver = {
       enable = true;
@@ -169,13 +214,6 @@ in {
         #noDesktop = true;
         #enableXfwm = false;
       };
-      # windowManager.awesome = {
-      #   enable = true;
-      #   luaModules = with pkgs.luaPackages; [
-      #     luarocks
-      #     luadbi-mysql
-      #   ];
-      # };
       xkb = {
         layout = "ph";
         options = "shift:both_capslock";

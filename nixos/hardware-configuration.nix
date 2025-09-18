@@ -11,33 +11,12 @@
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    inputs.minegrub-theme.nixosModules.default
   ];
 
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
   boot.initrd.kernelModules = ["amdgpu"];
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
-  # Custom Kernel, because, why not :)
-  boot.kernelPackages = pkgs.linuxPackages_zen;
-  # Installs GRUB as the Default Bootloader
-  boot.loader = {
-    efi = {
-      efiSysMountPoint = "/boot";
-      canTouchEfiVariables = true;
-    };
-    grub = {
-      enable = true;
-      efiSupport = true;
-      device = "nodev";
-      minegrub-theme = {
-        enable = true;
-        splash = "I.. am Steve!";
-        background = "background_options/1.8  - [Classic Minecraft].png";
-        boot-options-count = 4;
-      };
-    };
-  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/5ed6cc43-aa23-4d7c-8ea7-e63c0d5fd9ab";
@@ -72,24 +51,6 @@
   fileSystems."/run/media/sphericalpb/e6c0084e-1793-48cd-9fec-9ab549d2791e" = {
     device = "/dev/disk/by-uuid/e6c0084e-1793-48cd-9fec-9ab549d2791e";
     fsType = "ext4";
-  };
-
-  #swapDevices = [];
-  #swapDevices = [
-  #  {
-  #    device = "/swap/swapfile";
-  #    priority = 1;
-  #  }
-  #];
-
-  # Change how aggressive the kernel uses the swap space
-  #boot.kernel.sysctl = {"vm.swappiness" = 10;};
-
-  zramSwap = {
-    enable = true;
-    algorithm = "zstd";
-    memoryPercent = 30;
-    priority = 100;
   };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
