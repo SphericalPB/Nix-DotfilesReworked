@@ -19,9 +19,9 @@ function initialize() {
 
 function rebuild() {
   if [[ -z "$homeRebuild" ]] then
-    nh os switch --dry ${updateFlakes:+-u} "$@" -H "$nixHost"
+    nh os switch ${updateFlakes:+-u} "$@" -H "$nixHost"
   else
-    nh home switch --dry ${updateFlakes:+-u} "$@" -c "$nixUser@$nixHost"
+    nh home switch ${updateFlakes:+-u} "$@" -c "$nixUser@$nixHost"
   fi
 }
 
@@ -100,6 +100,7 @@ if rebuild "$@"; then
           echo "Invalid input, please enter y or n."
           ;;
       esac
+      separator
     fi
   else
     separator
