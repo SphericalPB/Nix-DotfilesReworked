@@ -27,8 +27,15 @@
     # Install Flatpak packages Declaratively!
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
-    # Minecraft Theme for grubBootloader
+    # Minecraft Theme for GRUB bootloader
     minegrub-theme.url = "github:Lxtharia/minegrub-theme";
+
+    # Minecraft Theme for SDDM
+    minesddm = {
+      # TODO: temporarily on the dev branch since required packages for this theme wont install properly on master.
+      url = "git+https://github.com/Davi-S/sddm-theme-minesddm.git?ref=development";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Ricing Made Easy!
     stylix.url = "github:danth/stylix";

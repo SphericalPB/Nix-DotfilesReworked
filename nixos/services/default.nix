@@ -1,6 +1,7 @@
 {
   imports = [
-    ./greetd.nix
+    #./greetd.nix
+    ./sddm.nix
     #./plasma.nix
     ./thumbnailer.nix
     #./stylix.nix

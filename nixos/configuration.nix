@@ -124,7 +124,7 @@ in {
         minegrub-theme = {
           enable = true;
           splash = "Flint n' Steel!";
-          background = "background_options/1.8  - [Classic Minecraft].png";
+          background = "background_options/1.20 - [Trails & Tales].png";
           boot-options-count = 4;
         };
       };
@@ -136,6 +136,7 @@ in {
     {
       device = "/swap/swapfile";
       priority = 10;
+      size = 6 * 1024;
     }
   ];
 
