@@ -12,6 +12,7 @@
     ./web-scrobbler.nix
     ./improved-tube.nix # Currently only works if you interact with it in the extensions menu
     ./youtube-shorts-block.nix
+    ./old-reddit-redirect.nix
   ];
   programs.zen-browser.profiles.Funky-Rodent = {
     settings = {
