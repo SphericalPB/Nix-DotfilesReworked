@@ -12,13 +12,14 @@
       permissions = [
         "declarativeNetRequestWithHostAccess"
         "https://old.reddit.com/*"
-        "https://reddit.com/*"
-        "https://www.reddit.com/*"
-        "https://np.reddit.com/*"
-        "https://amp.reddit.com/*"
-        "https://i.reddit.com/*"
-        "https://i.redd.it/*"
-        "https://preview.redd.it/*"
+        "*://reddit.com/*"
+        "*://www.reddit.com/*"
+        "*://np.reddit.com/*"
+        "*://amp.reddit.com/*"
+        "*://i.reddit.com/*"
+        "*://i.redd.it/*"
+        "*://preview.redd.it/*"
+        "browsingdata"
       ];
     };
   };
