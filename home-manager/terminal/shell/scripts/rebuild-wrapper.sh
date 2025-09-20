@@ -35,7 +35,7 @@ function separator() {
   printf '%*s\n' "$width" '' | tr ' ' '='
 }
 
-while getopts "hauys" opt;do
+while getopts "hauSs" opt;do
   case $opt in
     h)
       helpPrint
@@ -47,7 +47,7 @@ while getopts "hauys" opt;do
     u)
       updateFlakes="1"
       ;;
-    y)
+    S)
       skipPush="1"
       ;;
     s)
