@@ -74,6 +74,8 @@
           www.youtube.com * 3p-script noop
           www.reddit.com * 3p-frame noop
           www.reddit.com * 3p-script noop
+          old.reddit.com * 3p-frame noop
+          old.reddit.com * 3p-script noop
           ph.pinterest.com * 3p-frame noop
           ph.pinterest.com * 3p-script noop
           github.com * 3p-frame noop

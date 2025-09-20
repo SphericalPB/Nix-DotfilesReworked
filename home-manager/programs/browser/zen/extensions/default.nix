@@ -16,7 +16,7 @@
   ];
   programs.zen-browser.profiles.Funky-Rodent = {
     settings = {
-      "extensions.autoDisableScopes" = 0;
+      #"extensions.autoDisableScopes" = 0;
     };
     extensions = {
       force = true; # Force replace existing extensions

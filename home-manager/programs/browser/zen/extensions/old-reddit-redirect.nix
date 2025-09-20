@@ -19,7 +19,7 @@
         "*://i.reddit.com/*"
         "*://i.redd.it/*"
         "*://preview.redd.it/*"
-        "browsingdata"
+        "browsingData"
       ];
     };
   };
