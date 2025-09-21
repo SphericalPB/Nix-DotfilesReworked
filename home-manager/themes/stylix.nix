@@ -7,7 +7,7 @@
   stylix = {
     enable = true;
     # Global Colorscheme
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-material-dark-hard.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     polarity = "dark";
     # Default wallpaper
     #image = ./wallpaper.png;
