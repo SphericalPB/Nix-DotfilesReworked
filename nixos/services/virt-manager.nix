@@ -3,20 +3,20 @@
   pkgs,
   ...
 }: {
-  #environment.systemnPackages = with pkgs; [
-  #  virtio-win
-  #];
+  environment.systemPackages = with pkgs; [
+    virtio-win
+  ];
   #environment.sessionVariables = {
   #  GDK_BACKEND = "x11";
   #};
 
-  #systemd.tmpfiles.rules = let
-  #  firmware = pkgs.runCommandLocal "qemu-firmware" {} ''
-  #    mkdir $out
-  #    cp ${pkgs.qemu}/share/qemu/firmware/*.json $out
-  #    substituteInPlace $out/*.json --replace ${pkgs.qemu} /run/current-system/sw
-  #  '';
-  #in ["L+ /var/lib/qemu/firmware - - - - ${firmware}"];
+  systemd.tmpfiles.rules = let
+    firmware = pkgs.runCommandLocal "qemu-firmware" {} ''
+      mkdir $out
+      cp ${pkgs.qemu}/share/qemu/firmware/*.json $out
+      substituteInPlace $out/*.json --replace ${pkgs.qemu} /run/current-system/sw
+    '';
+  in ["L+ /var/lib/qemu/firmware - - - - ${firmware}"];
 
   programs.virt-manager.enable = true;
   users.groups.libvirtd.members = ["sphericalpb"];
