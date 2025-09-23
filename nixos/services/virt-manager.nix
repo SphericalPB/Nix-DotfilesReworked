@@ -49,16 +49,16 @@
   };
   virtualisation.spiceUSBRedirection.enable = true;
 
-  services.samba = {
-    enable = true;
-    settings = {
-      LinuxHost = {
-        path = "/home/sphericalpb/";
-        "valid users" = "sphericalpb";
-        public = "no";
-        writable = "yes";
-        printable = "no";
-      };
-    };
-  };
+  #services.samba = {
+  #  enable = true;
+  #  settings = {
+  #    LinuxHost = {
+  #      path = "/home/sphericalpb/";
+  #      "valid users" = "sphericalpb";
+  #      public = "no";
+  #      writable = "yes";
+  #      printable = "no";
+  #    };
+  #  };
+  #};
 }
